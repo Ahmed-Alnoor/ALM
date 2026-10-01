@@ -1,7 +1,7 @@
 # District 11 by Al Marwan — Landing Page
 
 Single-file, bilingual (EN / AR, RTL) lead-generation landing page in the District 11 brand:
-full-screen scenes on the paper palette, solid terracotta buttons, the District 11 and Al Marwan logos, Radikal type.
+full-screen scenes on the paper palette, solid buttons in the District 11 brand brown (#8F7657), the District 11 and Al Marwan logos, Radikal type.
 Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the file (GSAP Standard License, Lenis MIT).
 
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
@@ -19,13 +19,13 @@ To swap a picture, replace the file with one of the same name and shape.
 | --- | --- | --- |
 | Hero (video) | `video/hero-desktop.mp4` + `images/hero-desktop-poster.webp` | `video/hero-mobile.mp4` (1080×1920, 18 s loop) + `images/hero-mobile-poster.webp` |
 | Story 01 · Arrival | `images/story-1-arrival.webp` | `images/story-1-arrival-m.webp` |
-| Story 02 · Promenades | `images/story-2-promenade.webp` | `images/story-2-promenade-m.webp` |
+| Story 02 · Bus station | `images/story-2-promenade.webp` | `images/story-2-promenade-m.webp` |
 | Story 03 · Facades | `images/story-3-facade.webp` | `images/story-3-facade-m.webp` |
 | Story 04 · Gardens | `images/story-4-gardens.webp` | `images/story-4-gardens-m.webp` |
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
-| Sustainability | `images/green-aerial.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
+| Sustainability | `images/green-pavilion-night.webp`, `images/green-courtyard-night.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
-| Interiors gallery (8 cards) | `images/interior-*.webp` (tall, used on every screen) | same |
+| Evenings gallery (6 night shots) | `images/night-*.webp` (tall, used on every screen) | same |
 | Aerial scene | `images/aerial.webp` | `images/aerial-m.webp` |
 | Location map | `images/location-map.webp`, `images/location-map-sm.webp` | same |
 | Final contact | `images/final-masterplan.webp` | `images/final-masterplan-m.webp` |
