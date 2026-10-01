@@ -6,7 +6,7 @@ Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the f
 
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
 - `assets/` — web-optimised media (full-screen daylight hero video, full-page images, D6 floor plans 01–09 and their 3D slab textures).
-- `assets/fonts/` — drop the licensed Radikal `.woff2` files here (names in `assets/fonts/README.md`).
+- `assets/fonts/` — Radikal (UltraThin, Thin, Light, Bold) as WOFF2, converted from the brand files. Arabic uses Noto Kufi Arabic from Google Fonts.
 
 Open `index.html` directly, or host it together with the `assets/` folder.
 
