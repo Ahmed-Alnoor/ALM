@@ -22,7 +22,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="District 11 by Al Marwan">
 <meta property="og:description" content="Sharjah's first ultra office district. 75% sold. 5% down payment, 40/60 payment plan.">
-<meta property="og:image" content="assets/d11-hero-full-poster.webp">
+<meta property="og:image" content="assets/images/hero-desktop-poster.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F6F4EE'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial' font-weight='700' font-size='32' fill='%23BD785B' text-anchor='middle'%3E11%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,8 @@
   --ink-2:#66625C;
   --line:rgba(58,56,53,.13);
   --line-2:rgba(58,56,53,.24);
-  --g-terra:linear-gradient(120deg,#C6866A 0%,#A6644A 55%,#8E5139 100%);
+  --btn:#A6644A;             /* buttons: one solid terracotta, no gradient */
+  --btn-h:#8E5139;           /* button hover */
   --g-text:linear-gradient(120deg,#C98A6E 0%,#9A5A41 100%);
   --g-page:linear-gradient(180deg,#F6F4EE 0%,#F2EBE2 100%);
   --g-page-r:linear-gradient(180deg,#F2EBE2 0%,#F6F4EE 100%);
@@ -118,12 +119,10 @@ html[lang=ar] .h2{font-size:clamp(1.5rem,2.3vw + .6rem,3rem)}
 .gtext small{color:var(--terra-d)}
 
 /* ---------- buttons ---------- */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 28px;border-radius:var(--r);font:500 11.5px/1.2 var(--font);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden;isolation:isolate;transition:color .4s,border-color .4s,box-shadow .6s var(--out)}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 28px;border-radius:var(--r);font:500 11.5px/1.2 var(--font);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden;isolation:isolate;transition:color .4s,border-color .4s,background-color .4s,box-shadow .6s var(--out)}
 html[lang=ar] .btn{font:500 14px/1.2 var(--ar)}
-.btn-terra{background:var(--g-terra);color:var(--white);box-shadow:0 16px 32px -18px rgba(154,90,65,.85)}
-.btn-terra::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--out)}
-.btn-terra:hover::after{transform:translateX(120%)}
-.btn-terra:hover{box-shadow:0 22px 40px -18px rgba(154,90,65,.95)}
+.btn-terra{background:var(--btn);color:var(--white);box-shadow:0 16px 32px -18px rgba(154,90,65,.85)}
+.btn-terra:hover{background:var(--btn-h);box-shadow:0 22px 40px -18px rgba(154,90,65,.95)}
 .btn-line{border:1px solid var(--line-2);color:var(--ink)}
 .btn-line:hover{border-color:var(--terra);color:var(--terra-d)}
 .btn-glass{border:1px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
@@ -251,7 +250,7 @@ html[dir=rtl] .sold-num{text-align:right}
 .sold-label{display:block;font:500 10.5px/1.4 var(--font);letter-spacing:.24em;text-transform:uppercase;color:var(--terra-d)}
 html[lang=ar] .sold-label{font:500 13px/1.4 var(--ar)}
 .sold-bar{position:relative;height:4px;margin:14px 0 12px;background:var(--sand-2);overflow:hidden}
-.sold-bar i{position:absolute;inset:0;width:75%;background:var(--g-terra);transform-origin:left}
+.sold-bar i{position:absolute;inset:0;width:75%;background:var(--btn);transform-origin:left}
 html[dir=rtl] .sold-bar i{inset:0 0 0 auto;transform-origin:right}
 .sold-note{font-size:14.5px;color:var(--ink-2)}
 .minis{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;margin-top:clamp(48px,6vw,72px)}
@@ -294,6 +293,30 @@ html[lang=ar] .scene-cap .n{font:500 13px/1 var(--ar)}
 html[lang=ar] .scene-cap h3{font:300 clamp(1.6rem,3vw + .5rem,3.8rem)/1.35 var(--ar)}
 .scene-cap .btn{margin-top:24px}
 
+/* ---------- interiors: tall images that slide sideways as you scroll ---------- */
+.gal{position:relative;background:var(--g-page);overflow:hidden}
+.gal-pin{position:relative;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,3.2vh,36px);min-height:100svh;padding:calc(var(--hdr) + 20px) 0 calc(var(--barh) + 24px)}
+.gal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.gal-head .h2{margin-top:14px}
+.gal-prog{display:none;align-items:center;gap:12px;flex:none;padding-bottom:8px;font:500 11px/1 var(--font);letter-spacing:.16em;color:var(--ink-2)}
+.gal-prog .bar{position:relative;width:90px;height:1px;background:var(--line-2)}
+.gal-prog .bar i{position:absolute;inset:0;background:var(--btn);transform-origin:left;transform:scaleX(.125)}
+.motion .gal-prog{display:flex}
+@media (max-width:767px){.motion .gal-prog{display:none}}
+.gal-track{--ch:clamp(300px,calc(100svh - var(--hdr) - var(--barh) - 210px),660px);display:flex;gap:clamp(10px,1.4vw,20px);padding-inline:var(--gut);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.gal-track::-webkit-scrollbar{display:none}
+.motion .gal-track{overflow:visible;scroll-snap-type:none}
+.gal-card{position:relative;flex:none;height:var(--ch);aspect-ratio:1080/1936;margin:0;overflow:hidden;background:var(--sand-2);scroll-snap-align:start}
+.gal-card img{position:absolute;top:0;left:-8%;width:116%;max-width:none;height:100%;object-fit:cover;transition:scale 1.2s var(--out)}
+.gal-card:hover img{scale:1.04}
+.gal-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--shade),0) 52%,rgba(var(--shade),.58) 100%);pointer-events:none}
+.gal-card figcaption{position:absolute;z-index:2;left:16px;right:16px;bottom:16px;display:grid;gap:8px;color:#fff}
+.gal-card figcaption span{font:500 10px/1 var(--font);letter-spacing:.24em;color:rgba(255,255,255,.8)}
+.gal-card figcaption b{font:300 clamp(1.05rem,.9vw + .7rem,1.45rem)/1.2 var(--font)}
+html[dir=rtl] .gal-card figcaption span{text-align:right}
+html[lang=ar] .gal-card figcaption b{font:400 clamp(1rem,.8vw + .65rem,1.25rem)/1.45 var(--ar)}
+@media (min-width:1280px){.gal-track{padding-left:var(--lm)}html[dir=rtl] .gal-track{padding-left:var(--gut);padding-right:calc(var(--rail) + 24px)}}
+
 /* ---------- sustainability ---------- */
 .green{position:relative;padding:clamp(88px,13vw,160px) 0;background:var(--g-page-r);overflow:hidden}
 .green-grid{display:grid;gap:56px;align-items:center}
@@ -318,7 +341,7 @@ html[dir=rtl] .gm-b{right:auto;left:0}
 .lv{flex:none;width:36px;height:36px;border:1px solid var(--line-2);border-radius:var(--r);font:500 12px/1 var(--font);color:var(--ink-2);transition:background-color .3s,color .3s,border-color .3s,transform .4s var(--out)}
 .lv:hover{border-color:var(--terra);color:var(--terra-d)}
 .lv-t{display:none}
-.lv[aria-pressed=true]{background:var(--g-terra);border-color:transparent;color:#fff}
+.lv[aria-pressed=true]{background:var(--btn);border-color:transparent;color:#fff}
 .lv-info{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:18px;font-size:14px;color:var(--ink-2)}
 .lv-info b{font:300 30px/1 var(--font);color:var(--ink)}
 html[lang=ar] .lv-info b{font:400 24px/1.2 var(--ar)}
@@ -410,7 +433,7 @@ html[dir=rtl] .pay-step .pct{text-align:right}
 html[lang=ar] .pay-step h3{font:500 15px/1.5 var(--ar)}
 .pay-step p{font-size:13px;color:var(--ink-2)}
 .pay-meter{position:relative;height:4px;background:var(--sand-2);overflow:hidden;margin-top:6px}
-.pay-meter i{position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--g-terra);transform-origin:left}
+.pay-meter i{position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--btn);transform-origin:left}
 html[dir=rtl] .pay-meter i{inset:0 0 0 auto;transform-origin:right}
 @media (min-width:1100px){.pay-grid{grid-template-columns:5fr 6fr;gap:96px}}
 
@@ -489,7 +512,7 @@ html[lang=ar] .dev-i b{font:400 18px/1.4 var(--ar)}
 .dock.is-on{transform:none;opacity:1;visibility:visible;transition:transform .9s var(--out),opacity .6s}
 .dock.is-on.is-min{transform:translateX(calc(100% + 48px));opacity:0;visibility:hidden;transition:transform .9s var(--out),opacity .6s,visibility 0s .9s}
 .dock .card{padding:22px 20px 16px;box-shadow:0 40px 80px -40px rgba(58,56,53,.45)}
-.dock .card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--g-terra)}
+.dock .card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--btn)}
 .dock .card-t{margin-top:8px;font-size:22px}
 html[lang=ar] .dock .card-t{font-size:18px}
 .dock .f{margin-top:9px}
@@ -500,7 +523,7 @@ html[lang=ar] .dock .card-t{font-size:18px}
 .dock-x{position:absolute;z-index:2;top:12px;right:12px;display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--line);color:var(--ink-2)}
 .dock-x svg{width:10px;height:10px}
 .dock.is-on .stg>*{animation:up .8s var(--out) both;animation-delay:calc(var(--i,0)*70ms + 200ms)}
-.dock-tab{position:fixed;z-index:55;right:0;top:50%;padding:18px 12px;writing-mode:vertical-rl;transform:translate(100%,-50%) rotate(180deg);background:var(--g-terra);color:#fff;font:500 10.5px/1 var(--font);letter-spacing:.22em;text-transform:uppercase;transition:transform .7s var(--out)}
+.dock-tab{position:fixed;z-index:55;right:0;top:50%;padding:18px 12px;writing-mode:vertical-rl;transform:translate(100%,-50%) rotate(180deg);background:var(--btn);color:#fff;font:500 10.5px/1 var(--font);letter-spacing:.22em;text-transform:uppercase;transition:transform .7s var(--out)}
 html[lang=ar] .dock-tab{writing-mode:horizontal-tb;transform:translate(100%,-50%);padding:14px 16px;font:500 13px/1 var(--ar)}
 .dock-tab.is-on{transform:translate(0,-50%) rotate(180deg)}
 html[lang=ar] .dock-tab.is-on{transform:translate(0,-50%)}
@@ -512,7 +535,7 @@ html[lang=ar] .dock-tab.is-on{transform:translate(0,-50%)}
 @media (max-width:1279px){:root{--barh:calc(114px + env(safe-area-inset-bottom))}}
 @media (min-width:640px) and (max-width:1279px){:root{--barh:calc(66px + env(safe-area-inset-bottom))}}
 .mbar{position:fixed;z-index:55;left:0;right:0;bottom:0;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(252,251,248,.95);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border-top:1px solid var(--line);box-shadow:0 -20px 40px -28px rgba(58,56,53,.4);transform:translateY(110%);transition:transform .7s var(--out)}
-.mbar::before{content:"";position:absolute;inset:-1px 0 auto;height:2px;background:var(--g-terra)}
+.mbar::before{content:"";position:absolute;inset:-1px 0 auto;height:2px;background:var(--btn)}
 .mbar.is-on{transform:none}
 .mform{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.4fr);gap:6px;max-width:1000px;margin:0 auto}
 .mform .f{margin:0}
@@ -590,11 +613,11 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
   <div class="hero-bg" id="heroBg">
     <div class="hero-shade"></div>
     <video id="heroVideo" muted playsinline autoplay loop preload="auto"
-      data-desktop="assets/d11-hero-full.mp4" data-mobile="assets/d11-hero-portrait.mp4"
-      data-poster="assets/d11-hero-full-poster.webp" data-poster-mobile="assets/d11-hero-portrait-poster.webp" aria-label="District 11 in daylight"></video>
+      data-desktop="assets/video/hero-desktop.mp4" data-mobile="assets/video/hero-mobile.mp4"
+      data-poster="assets/images/hero-desktop-poster.webp" data-poster-mobile="assets/images/hero-mobile-poster.webp" aria-label="District 11 in daylight"></video>
     <script>
       (function (v) {
-        var m = window.matchMedia('(max-width: 767px)').matches;
+        var m = window.matchMedia('(max-aspect-ratio: 4/5)').matches;   // upright screens play the vertical film
         v.poster = m ? v.dataset.posterMobile : v.dataset.poster;
         v.src = m ? v.dataset.mobile : v.dataset.desktop;
       })(document.getElementById('heroVideo'));
@@ -672,16 +695,16 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 <!-- ================= FULL-PAGE STORY ================= -->
 <section class="story" id="story" aria-label="Inside District 11">
   <div class="story-pin">
-    <figure class="story-panel"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-arches-m.webp"><img src="assets/d11-full-arches.webp" width="1920" height="1080" alt="Arched entrances with landscaped drop-off" decoding="async"></picture>
-      <figcaption class="story-cap"><span class="n" data-i18n="s1.n">01 · Arrival</span><h3 data-i18n="s1.t">Arrive beneath sculpted arches.</h3></figcaption></figure>
-    <figure class="story-panel"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-cafe-m.webp"><img src="assets/d11-full-cafe.webp" width="1920" height="1080" alt="Garden café courtyard shaded by palms" loading="lazy" decoding="async"></picture>
-      <figcaption class="story-cap"><span class="n" data-i18n="s2.n">02 · Courtyards</span><h3 data-i18n="s2.t">Courtyards shaded by palms.</h3></figcaption></figure>
-    <figure class="story-panel"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-shuttle-m.webp"><img src="assets/d11-full-shuttle.webp" width="1920" height="1080" alt="Shuttle passing a landscaped park between buildings" loading="lazy" decoding="async"></picture>
-      <figcaption class="story-cap"><span class="n" data-i18n="s3.n">03 · Promenades</span><h3 data-i18n="s3.t">Every building, a short walk away.</h3></figcaption></figure>
-    <figure class="story-panel"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-fins-m.webp"><img src="assets/d11-full-fins.webp" width="1920" height="1080" alt="Vertical facade fins above a palm-lined plaza" loading="lazy" decoding="async"></picture>
-      <figcaption class="story-cap"><span class="n" data-i18n="s5.n">04 · Facades</span><h3 data-i18n="s5.t">Fins that soften the desert sun.</h3></figcaption></figure>
-    <figure class="story-panel"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-library-m.webp"><img src="assets/d11-full-library.webp" width="1920" height="1080" alt="Library lounge opening onto greenery" loading="lazy" decoding="async"></picture>
-      <figcaption class="story-cap"><span class="n" data-i18n="s4.n">05 · Lounges</span><h3 data-i18n="s4.t">Lounges that open onto green.</h3></figcaption></figure>
+    <figure class="story-panel"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/story-1-arrival-m.webp"><img src="assets/images/story-1-arrival.webp" width="2400" height="1340" loading="lazy" alt="District 11 across landscaped gardens in daylight" decoding="async"></picture>
+      <figcaption class="story-cap"><span class="n" data-i18n="s1.n">01 · Arrival</span><h3 data-i18n="s1.t">A landmark address on E311.</h3></figcaption></figure>
+    <figure class="story-panel"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/story-2-promenade-m.webp"><img src="assets/images/story-2-promenade.webp" width="1536" height="864" loading="lazy" alt="Shuttle stop beside the white pavilion" decoding="async"></picture>
+      <figcaption class="story-cap"><span class="n" data-i18n="s2.n">02 · Promenades</span><h3 data-i18n="s2.t">Every building, a short walk away.</h3></figcaption></figure>
+    <figure class="story-panel"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/story-3-facade-m.webp"><img src="assets/images/story-3-facade.webp" width="1536" height="864" loading="lazy" alt="Shaded promenade beneath vertical facade fins" decoding="async"></picture>
+      <figcaption class="story-cap"><span class="n" data-i18n="s3.n">03 · Facades</span><h3 data-i18n="s3.t">Fins that soften the desert sun.</h3></figcaption></figure>
+    <figure class="story-panel"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/story-4-gardens-m.webp"><img src="assets/images/story-4-gardens.webp" width="2400" height="1340" loading="lazy" alt="Sunlit lounge surrounded by indoor gardens" decoding="async"></picture>
+      <figcaption class="story-cap"><span class="n" data-i18n="s4.n">04 · Gardens</span><h3 data-i18n="s4.t">Workspaces that open onto gardens.</h3></figcaption></figure>
+    <figure class="story-panel"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/story-5-lobby-m.webp"><img src="assets/images/story-5-lobby.webp" width="2400" height="1340" loading="lazy" alt="Bright lobby lounge with tall windows onto trees" decoding="async"></picture>
+      <figcaption class="story-cap"><span class="n" data-i18n="s5.n">05 · Lobbies</span><h3 data-i18n="s5.t">Lobbies with the calm of a hotel.</h3></figcaption></figure>
     <div class="story-prog ltr" aria-hidden="true"><span id="storyNum">01</span><span class="bar"><i id="storyBar"></i></span><span>05</span></div>
   </div>
 </section>
@@ -700,16 +723,16 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
       </ul>
     </div>
     <div class="green-media">
-      <div class="gm-a"><img data-par="-8" src="assets/d11-green-square.webp" width="720" height="720" loading="lazy" decoding="async" alt="Landscaped park and courtyards seen from above"></div>
-      <div class="gm-b" data-par="10"><video muted playsinline loop preload="none" data-src="assets/d11-green.mp4" poster="assets/d11-green-poster.webp" aria-label="Shuttle and garden promenade"></video></div>
+      <div class="gm-a"><img data-par="-8" src="assets/images/green-aerial.webp" width="720" height="720" loading="lazy" decoding="async" alt="Landscaped park and courtyards seen from above"></div>
+      <div class="gm-b" data-par="10"><video muted playsinline loop preload="none" data-src="assets/video/green.mp4" poster="assets/images/green-video-poster.webp" aria-label="Shuttle and garden promenade"></video></div>
     </div>
   </div>
 </section>
 
-<!-- ================= SCENE: lobby ================= -->
-<section class="scene" id="lobby" aria-label="Lobbies with the calm of a hotel">
-  <div class="scene-media"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-lobby-m.webp"><img src="assets/d11-full-lobby.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Double-height reception with a marble desk and sculpted wall art"></picture></div>
-  <div class="wrap scene-cap"><span class="n" data-i18n="sn1.n">Interiors</span><h3 data-split data-i18n="sn1.t">Lobbies with the calm of a hotel.</h3>
+<!-- ================= SCENE: reception ================= -->
+<section class="scene" id="reception" aria-label="A welcome worthy of your clients">
+  <div class="scene-media"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/reception-m.webp"><img src="assets/images/reception.webp" width="1920" height="1080" loading="lazy" alt="Double-height reception with a marble desk and sculpted wall art" decoding="async"></picture></div>
+  <div class="wrap scene-cap"><span class="n" data-i18n="sn1.n">Concierge</span><h3 data-split data-i18n="sn1.t">A welcome worthy of your clients.</h3>
     <div><a href="#" class="btn btn-glass" data-lead="visit"><span class="lbl" data-i18n="sn1.cta">Book a private tour</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div></div>
 </section>
 
@@ -731,7 +754,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
         <div class="tower" id="tower" aria-hidden="true"></div>
         <div class="plan" id="plan">
           <div class="plan-sheet" id="planSheet">
-            <img id="planImg" src="assets/d6-floor-05.webp" width="1122" height="1402" alt="Building D6, level 05 floor plan" decoding="async" draggable="false">
+            <img id="planImg" src="assets/images/d6-floor-05.webp" width="1122" height="1402" alt="Building D6, level 05 floor plan" decoding="async" draggable="false">
             <div class="spots" id="spots" role="list" aria-label="Office suites"></div>
             <div class="suite-card" id="suiteCard" hidden>
               <span class="sc-k" id="scLevel">Building D6 · Level 05</span>
@@ -766,10 +789,25 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
   </div>
 </section>
 
-<!-- ================= SCENE: arrive ================= -->
-<section class="scene" id="arrive" aria-label="Arrive at your floor in moments">
-  <div class="scene-media"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-corridor-m.webp"><img src="assets/d11-full-corridor.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Lift lobby with marble floors and a sculpted brass wall piece"></picture></div>
-  <div class="wrap scene-cap"><span class="n" data-i18n="sn2.n">Lift lobbies</span><h3 data-split data-i18n="sn2.t">Arrive at your floor in moments.</h3></div>
+<!-- ================= INTERIORS: sideways gallery ================= -->
+<section class="gal" id="interiors" aria-label="Interiors">
+  <div class="gal-pin" id="galPin">
+    <div class="wrap gal-head">
+      <div><span class="eyebrow" data-i18n="gl.eyebrow">Interiors</span>
+        <h2 class="h2" data-split data-i18n="gl.title">Finished to <strong>hotel standards.</strong></h2></div>
+      <div class="gal-prog ltr" aria-hidden="true"><span id="galNum">01</span><span class="bar"><i id="galBar"></i></span><span>08</span></div>
+    </div>
+    <div class="gal-track" id="galTrack">
+      <figure class="gal-card"><img src="assets/images/interior-lobby-lounge.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Lobby lounge with a crystal chandelier and soft seating"><figcaption><span class="ltr">01</span><b data-i18n="g1">Lobby lounges</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-signature-lobby.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Building lobby with a sculpted bronze artwork"><figcaption><span class="ltr">02</span><b data-i18n="g2">Signature lobbies</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-lift-lobby.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Curved lift lobby with cove lighting"><figcaption><span class="ltr">03</span><b data-i18n="g3">Lift lobbies</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-business-lounge.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Business lounge with a sculpted ceiling and city views"><figcaption><span class="ltr">04</span><b data-i18n="g4">Business lounges</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-event-lounge.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Event lounge with tiered armchairs facing a screen"><figcaption><span class="ltr">05</span><b data-i18n="g5">Event lounge</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-wellness.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Wellness studio opening onto gardens"><figcaption><span class="ltr">06</span><b data-i18n="g6">Wellness studio</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-cafe.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Café with floor-to-ceiling windows onto palms"><figcaption><span class="ltr">07</span><b data-i18n="g7">Cafés</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-valet.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Covered valet drop-off with cars arriving"><figcaption><span class="ltr">08</span><b data-i18n="g8">Valet drop-off</b></figcaption></figure>
+    </div>
+  </div>
 </section>
 
 <!-- ================= AMENITIES ================= -->
@@ -794,14 +832,14 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 
 <!-- ================= SCENE: address ================= -->
 <section class="scene" id="address" aria-label="Sharjah's new business address">
-  <div class="scene-media"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-aerial-m.webp"><img src="assets/d11-full-aerial.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Sharjah from above at golden hour, with E311 running through the city"></picture></div>
+  <div class="scene-media"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/aerial-m.webp"><img src="assets/images/aerial.webp" width="2400" height="1340" loading="lazy" alt="Sharjah from above, with the District 11 plot outlined beside E311" decoding="async"></picture></div>
   <div class="wrap scene-cap"><span class="n" data-i18n="sn3.n">Muwaileh · Sharjah</span><h3 data-split data-i18n="sn3.t">Sharjah's new business address.</h3></div>
 </section>
 
 <!-- ================= LOCATION (full page) ================= -->
 <section class="loc" id="location">
   <div class="map-box" id="mapBox">
-    <img src="assets/d11-location-map.webp" srcset="assets/d11-location-map-sm.webp 1000w, assets/d11-location-map.webp 1920w" sizes="(max-width: 767px) 1600px, 100vw" width="1920" height="1080" loading="lazy" decoding="async" alt="Map: District 11 on E311 beside City Centre Al Zahia, Al Zahia, Al Falah, Al Jada, University City and Sharjah Airport">
+    <img src="assets/images/location-map.webp" srcset="assets/images/location-map-sm.webp 1000w, assets/images/location-map.webp 1920w" sizes="(max-width: 767px) 1600px, 100vw" width="1920" height="1080" loading="lazy" decoding="async" alt="Map: District 11 on E311 beside City Centre Al Zahia, Al Zahia, Al Falah, Al Jada, University City and Sharjah Airport">
     <span class="map-pin" aria-hidden="true"></span>
   </div>
   <div class="loc-shade"></div>
@@ -833,7 +871,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 
 <!-- ================= FINAL ================= -->
 <section class="final" id="contact">
-  <div class="final-bg" data-par="12"><picture><source media="(max-width: 767px)" srcset="assets/d11-full-glass-m.webp"><img src="assets/d11-full-glass.webp" width="1920" height="1080" loading="lazy" decoding="async" alt=""></picture></div>
+  <div class="final-bg" data-par="12"><picture><source media="(max-aspect-ratio: 4/5)" srcset="assets/images/final-masterplan-m.webp"><img src="assets/images/final-masterplan.webp" width="2400" height="1348" loading="lazy" alt="" decoding="async"></picture></div>
   <div class="wrap final-grid">
     <div>
       <span class="eyebrow rv" data-i18n="fn.eyebrow">Only 25% remaining</span>
@@ -963,7 +1001,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 <dialog class="modal lightbox" id="planBox" aria-label="Floor plan">
   <div class="modal-box" data-lenis-prevent>
     <button class="modal-x" type="button" data-close aria-label="Close"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
-    <img id="planBig" src="assets/d6-floor-05.webp" width="1122" height="1402" loading="lazy" alt="Building D6 floor plan, enlarged" draggable="false">
+    <img id="planBig" src="assets/images/d6-floor-05.webp" width="1122" height="1402" loading="lazy" alt="Building D6 floor plan, enlarged" draggable="false">
     <div class="lb-nav">
       <button class="pn pn-prev" type="button" data-step="-1" aria-label="Previous floor"><svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h17M13 1l4 4-4 4"/></svg><span class="pn-l"><span data-pn="-1">04</span></span></button>
       <b id="lbName">Level 05</b>
@@ -1034,14 +1072,16 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     'in.statement': 'إحدى عشرة بناية من تصميم HWKN نيويورك حول ساحات خضراء. منتجع أعمال يُستكشف سيراً، مباشرة على شارع E311.',
     'in.sold': 'تم بيعها', 'in.left': 'لم يتبقَّ سوى ربع وحدات الحي.', 'in.cta': 'احجز وحدتك',
     'mi.1': 'بناية', 'mi.2': 'قدم مربع', 'mi.3': 'غرفة فندقية', 'mi.4': 'موقف سيارات',
-    's1.n': '01 · الوصول', 's1.t': 'وصول تحت أقواس منحوتة.',
-    's2.n': '02 · الساحات', 's2.t': 'ساحات تظللها أشجار النخيل.',
-    's3.n': '03 · الممرات', 's3.t': 'كل بناية على بُعد خطوات.',
-    's5.n': '04 · الواجهات', 's5.t': 'كاسرات شمس تُلطّف ضوء الصحراء.',
-    's4.n': '05 · الصالات', 's4.t': 'صالات تنفتح على الخضرة.',
-    'sn1.n': 'التصميم الداخلي', 'sn1.t': 'ردهات بهدوء الفنادق الراقية.', 'sn1.cta': 'احجز جولة خاصة',
-    'sn2.n': 'ردهات المصاعد', 'sn2.t': 'طابقك على بُعد لحظات.',
+    's1.n': '01 · الوصول', 's1.t': 'عنوان بارز على شارع E311.',
+    's2.n': '02 · الممرات', 's2.t': 'كل بناية على بُعد خطوات.',
+    's3.n': '03 · الواجهات', 's3.t': 'كاسرات شمس تُلطّف ضوء الصحراء.',
+    's4.n': '04 · الحدائق', 's4.t': 'مساحات عمل تنفتح على الحدائق.',
+    's5.n': '05 · الردهات', 's5.t': 'ردهات بهدوء الفنادق الراقية.',
+    'sn1.n': 'الكونسيرج', 'sn1.t': 'استقبال يليق بعملائك.', 'sn1.cta': 'احجز جولة خاصة',
     'sn3.n': 'مويلح · الشارقة', 'sn3.t': 'عنوان الأعمال الجديد في الشارقة.',
+    'gl.eyebrow': 'التصميم الداخلي', 'gl.title': 'تشطيبات <strong>بمعايير فندقية.</strong>',
+    'g1': 'صالات الردهة', 'g2': 'ردهات مميزة', 'g3': 'ردهات المصاعد', 'g4': 'صالات الأعمال',
+    'g5': 'قاعة الفعاليات', 'g6': 'استوديو العافية', 'g7': 'المقاهي', 'g8': 'خدمة صف السيارات',
     'gr.eyebrow': 'مصمم مع الطبيعة', 'gr.title': 'خُطّط بالذكاء الاصطناعي. <strong>وصُمّم حول الطبيعة.</strong>',
     'p1': 'أنظمة طاقة محسّنة بالذكاء الاصطناعي', 'p2': 'مصمم لمناخ الشارقة', 'p3': 'ساحات خضراء مترابطة سيراً', 'p4': 'محطات مخصصة لشحن السيارات الكهربائية',
     'fl.eyebrow': 'المبنى D6 · الطوابق 01–09', 'fl.title': 'اختر <strong>طابقك.</strong>',
@@ -1313,7 +1353,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     return '<button class="lv" type="button" aria-pressed="' + (l === currentLevel) + '" data-level="' + l + '"><span class="lv-t">' + (lang === 'ar' ? 'الطابق ' : 'Level ') + '</span>' + l + '</button>';
   }).join('');
   tower.innerHTML = LEVELS.map(function (l, i) {
-    return '<div class="slab' + (l === currentLevel ? ' is-active' : '') + '" data-level="' + l + '" style="--i:' + i + '"><div class="slab-base"></div><div class="slab-top" style="background-image:url(assets/d6-slab-' + l + '.webp)"></div><span class="slab-n">' + l + '</span></div>';
+    return '<div class="slab' + (l === currentLevel ? ' is-active' : '') + '" data-level="' + l + '" style="--i:' + i + '"><div class="slab-base"></div><div class="slab-top" style="background-image:url(assets/images/d6-slab-' + l + '.webp)"></div><span class="slab-n">' + l + '</span></div>';
   }).join('');
   function posFor(l) { return POS[l] || POS.typical; }
   function renderSpots() {
@@ -1351,7 +1391,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     $$('.lv', levelsEl).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.level === l ? 'true' : 'false'); });
     $$('.slab', tower).forEach(function (s) { s.classList.toggle('is-active', s.dataset.level === l); });
     levelInfo(); updateNav();
-    var src = 'assets/d6-floor-' + l + '.webp';
+    var src = 'assets/images/d6-floor-' + l + '.webp';
     planBig.src = src;
     var swap = function () { planImg.src = src; planImg.alt = 'Building D6, level ' + l + ' floor plan'; renderSpots(); };
     if (MOTION && animate !== false) {
@@ -1426,7 +1466,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
   var planOnScreen = false, floorsLoaded = false;
   new IntersectionObserver(function (es) {
     planOnScreen = es[0].isIntersecting;
-    if (planOnScreen && !floorsLoaded) { floorsLoaded = true; LEVELS.forEach(function (l) { new Image().src = 'assets/d6-floor-' + l + '.webp'; }); }
+    if (planOnScreen && !floorsLoaded) { floorsLoaded = true; LEVELS.forEach(function (l) { new Image().src = 'assets/images/d6-floor-' + l + '.webp'; }); }
   }, { threshold: 0.3 }).observe(sheet);
   document.addEventListener('keydown', function (e) {
     if ((e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') || e.altKey || e.metaKey || e.ctrlKey) return;
@@ -1639,6 +1679,25 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
       .add(function () { spots.classList.add('is-hint'); });
     return function () { gsap.set('#plan', { clearProps: 'all' }); };
   });
+
+  /* interiors: scrolling down slides the tall images sideways */
+  (function () {
+    var track = $('#galTrack'); if (!track) return;
+    var cards = $$('.gal-card', track), imgs = $$('img', track), dir = rtl ? 1 : -1;
+    var dist = function () {
+      var cs = getComputedStyle(track), gap = parseFloat(cs.columnGap) || 0;
+      var w = cards.reduce(function (a, c) { return a + c.offsetWidth; }, 0) + gap * (cards.length - 1) + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+      return Math.max(0, w - track.clientWidth);
+    };
+    var tl = gsap.timeline({ scrollTrigger: { trigger: '#galPin', start: 'top top', end: function () { return '+=' + Math.max(dist(), innerHeight * .6); }, pin: true, scrub: .8, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 1,
+      onUpdate: function (st) {
+        $('#galNum').textContent = ('0' + Math.min(cards.length, 1 + Math.floor(st.progress * cards.length * .999))).slice(-2);
+        $('#galBar').style.transform = 'scaleX(' + (1 / cards.length + st.progress * (1 - 1 / cards.length)) + ')';
+      } } });
+    tl.to(track, { x: function () { return dir * dist(); }, ease: 'none' })
+      .fromTo(imgs, { xPercent: -dir * 6 }, { xPercent: dir * 6, ease: 'none' }, 0);
+    gsap.from(cards, { y: 70, opacity: 0, duration: 1.2, stagger: .07, ease: 'expo.out', scrollTrigger: { trigger: '#interiors', start: 'top 72%' } });
+  })();
 
   /* payment meters */
   gsap.from('.pay-meter i', { scaleX: 0, duration: 1.6, stagger: .15, ease: 'expo.out', scrollTrigger: { trigger: '#paySteps', start: 'top 80%' } });
