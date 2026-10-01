@@ -1,10 +1,11 @@
 # District 11 by Al Marwan — Landing Page
 
 Single-file, bilingual (EN / AR, RTL) lead-generation landing page in the District 11 brand:
-paper and terracotta palette from the D6 floor plans, the District 11 and Al Marwan logos, Radikal type.
+full-screen scenes on the paper palette, terracotta gradients, the District 11 and Al Marwan logos, Radikal type.
+Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the file (GSAP Standard License, Lenis MIT).
 
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
-- `assets/` — web-optimised media (H.264 daylight video loops, WebP images, D6 floor plans).
+- `assets/` — web-optimised media (full-screen daylight hero video, full-page images, D6 floor plans 01–09 and their 3D slab textures).
 - `assets/fonts/` — drop the licensed Radikal `.woff2` files here (names in `assets/fonts/README.md`).
 
 Open `index.html` directly, or host it together with the `assets/` folder.
@@ -19,12 +20,14 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 | `whatsapp` | WhatsApp number, digits only (e.g. `9715XXXXXXXX`). WhatsApp buttons stay hidden until this is set. |
 | `email` | Contact email. |
 
-Each lead includes name, phone (with country code), email, interest, form, context (e.g. `suite-905`),
-floor plan viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
+Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
+context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
 A `generate_lead` event is pushed to `dataLayer` (GTM) and fired to gtag, Meta Pixel, Snap and TikTok if installed.
 
 ## Floor plans
-The D6 plans (levels 03, 08, 09) have a tappable marker on each of the 13 suites. Suite positions and
-views are in the `SUITES` and `VIEW` objects in the script; add more floors there.
+Levels 03, 08 and 09 are the supplied D6 plans. Levels 01, 02 and 04–07 were generated from the typical
+level 08 layout with renumbered suites (`assets/d6-floor-0X.webp`) — replace them with the official plans
+when available (same file names). Each floor has a tappable marker on its 13 suites; positions and views
+are in the `POS` and `VIEW` objects in the script.
 
 Arabic version: add `?lang=ar` to the URL, or use the language toggle.
