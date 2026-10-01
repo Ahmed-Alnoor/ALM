@@ -295,7 +295,7 @@ html[lang=ar] .scene-cap .n{font:500 13px/1 var(--ar)}
 html[lang=ar] .scene-cap h3{font:300 clamp(1.6rem,3vw + .5rem,3.8rem)/1.35 var(--ar)}
 .scene-cap .btn{margin-top:24px}
 
-/* ---------- evenings: tall night images that slide sideways as you scroll ---------- */
+/* ---------- lifestyle gallery: tall images that slide sideways as you scroll ---------- */
 .gal{position:relative;background:var(--g-page);overflow:hidden}
 .gal-pin{position:relative;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,3.2vh,36px);min-height:100svh;padding:calc(var(--hdr) + 20px) 0 calc(var(--barh) + 24px)}
 .gal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
@@ -331,7 +331,7 @@ html[lang=ar] .pillar{font:400 15px/1.5 var(--ar)}
 .gm-a img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover}
 .gm-b{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:3/4;overflow:hidden;border:6px solid var(--paper);box-shadow:var(--shadow)}
 html[dir=rtl] .gm-b{right:auto;left:0}
-.gm-b img{width:100%;height:100%;object-fit:cover}
+.gm-b video{width:100%;height:100%;object-fit:cover}
 @media (min-width:1100px){.green-grid{grid-template-columns:minmax(0,1fr) minmax(0,560px);gap:96px}}
 
 /* ---------- floors: 3D stack ---------- */
@@ -726,7 +726,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     </div>
     <div class="green-media">
       <div class="gm-a"><img data-par="-8" src="assets/images/green-pavilion-night.webp" width="900" height="900" loading="lazy" decoding="async" alt="The white pavilion and its gardens lit at night"></div>
-      <div class="gm-b" data-par="10"><img src="assets/images/green-courtyard-night.webp" width="600" height="800" loading="lazy" decoding="async" alt="Garden courtyard with water channels in front of a lit office building"></div>
+      <div class="gm-b" data-par="10"><video muted playsinline loop preload="none" data-src="assets/video/green.mp4" poster="assets/images/green-video-poster.webp" aria-label="Shuttle and garden promenade"></video></div>
     </div>
   </div>
 </section>
@@ -791,21 +791,23 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
   </div>
 </section>
 
-<!-- ================= EVENINGS: sideways gallery ================= -->
-<section class="gal" id="evenings" aria-label="The district after dark">
+<!-- ================= LIFESTYLE: sideways gallery ================= -->
+<section class="gal" id="lifestyle" aria-label="Finished to hotel standards">
   <div class="gal-pin" id="galPin">
     <div class="wrap gal-head">
-      <div><span class="eyebrow" data-i18n="gl.eyebrow">Evenings</span>
-        <h2 class="h2" data-split data-i18n="gl.title">The district <strong>after dark.</strong></h2></div>
-      <div class="gal-prog ltr" aria-hidden="true"><span id="galNum">01</span><span class="bar"><i id="galBar"></i></span><span>06</span></div>
+      <div><span class="eyebrow" data-i18n="gl.eyebrow">Life at District 11</span>
+        <h2 class="h2" data-split data-i18n="gl.title">Finished to <strong>hotel standards.</strong></h2></div>
+      <div class="gal-prog ltr" aria-hidden="true"><span id="galNum">01</span><span class="bar"><i id="galBar"></i></span><span>08</span></div>
     </div>
     <div class="gal-track" id="galTrack">
-      <figure class="gal-card"><img src="assets/images/night-arcades.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Arcaded building fronts above a lit garden plaza"><figcaption><span class="ltr">01</span><b data-i18n="g1">Arcades</b></figcaption></figure>
-      <figure class="gal-card"><img src="assets/images/night-plaza.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Evening plaza with palms between glowing towers"><figcaption><span class="ltr">02</span><b data-i18n="g2">The plaza</b></figcaption></figure>
-      <figure class="gal-card"><img src="assets/images/night-garden-walk.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Landscaped walk between buildings at night"><figcaption><span class="ltr">03</span><b data-i18n="g3">Garden walk</b></figcaption></figure>
-      <figure class="gal-card"><img src="assets/images/night-dining.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Shaded promenade with outdoor dining at night"><figcaption><span class="ltr">04</span><b data-i18n="g4">Dining promenade</b></figcaption></figure>
-      <figure class="gal-card"><img src="assets/images/night-boulevard.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Palm-lined boulevard with lit offices at dusk"><figcaption><span class="ltr">05</span><b data-i18n="g5">Boulevard</b></figcaption></figure>
-      <figure class="gal-card"><img src="assets/images/night-entrance.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Tall triangular glass entrance lit at night"><figcaption><span class="ltr">06</span><b data-i18n="g6">Entrances</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/night-arcades.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="The plaza and its arcades lit at night"><figcaption><span class="ltr">01</span><b data-i18n="g1">The plaza</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-signature-lobby.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Building lobby with a sculpted bronze artwork"><figcaption><span class="ltr">02</span><b data-i18n="g2">Signature lobbies</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-lift-lobby.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Curved lift lobby with cove lighting"><figcaption><span class="ltr">03</span><b data-i18n="g3">Lift lobbies</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/night-dining.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Shaded promenade with outdoor dining at night"><figcaption><span class="ltr">04</span><b data-i18n="g4">Promenades</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-event-lounge.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Event lounge with tiered armchairs facing a screen"><figcaption><span class="ltr">05</span><b data-i18n="g5">Event lounge</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-wellness.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Wellness studio opening onto gardens"><figcaption><span class="ltr">06</span><b data-i18n="g6">Wellness studio</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-cafe.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Café with floor-to-ceiling windows onto palms"><figcaption><span class="ltr">07</span><b data-i18n="g7">Cafés</b></figcaption></figure>
+      <figure class="gal-card"><img src="assets/images/interior-valet.webp" width="1080" height="1936" loading="lazy" decoding="async" alt="Covered valet drop-off with cars arriving"><figcaption><span class="ltr">08</span><b data-i18n="g8">Valet drop-off</b></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1079,8 +1081,9 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     's5.n': '05 · الردهات', 's5.t': 'ردهات بهدوء الفنادق الراقية.',
     'sn1.n': 'الكونسيرج', 'sn1.t': 'استقبال يليق بعملائك.', 'sn1.cta': 'احجز جولة خاصة',
     'sn3.n': 'مويلح · الشارقة', 'sn3.t': 'عنوان الأعمال الجديد في الشارقة.',
-    'gl.eyebrow': 'المساء', 'gl.title': 'الحي <strong>بعد الغروب.</strong>',
-    'g1': 'الأروقة', 'g2': 'الساحة', 'g3': 'ممشى الحديقة', 'g4': 'ممشى المطاعم', 'g5': 'الجادة', 'g6': 'المداخل',
+    'gl.eyebrow': 'الحياة في ديستركت 11', 'gl.title': 'تشطيبات <strong>بمعايير فندقية.</strong>',
+    'g1': 'الساحة', 'g2': 'ردهات مميزة', 'g3': 'ردهات المصاعد', 'g4': 'الممرات',
+    'g5': 'قاعة الفعاليات', 'g6': 'استوديو العافية', 'g7': 'المقاهي', 'g8': 'خدمة صف السيارات',
     'gr.eyebrow': 'مصمم مع الطبيعة', 'gr.title': 'خُطّط بالذكاء الاصطناعي. <strong>وصُمّم حول الطبيعة.</strong>',
     'p1': 'أنظمة طاقة محسّنة بالذكاء الاصطناعي', 'p2': 'مصمم لمناخ الشارقة', 'p3': 'ساحات خضراء مترابطة سيراً', 'p4': 'محطات مخصصة لشحن السيارات الكهربائية',
     'fl.eyebrow': 'المبنى D6 · الطوابق 01–09', 'fl.title': 'اختر <strong>طابقك.</strong>',
@@ -1679,7 +1682,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     return function () { gsap.set('#plan', { clearProps: 'all' }); };
   });
 
-  /* evenings: scrolling down slides the tall night images sideways */
+  /* lifestyle gallery: scrolling down slides the tall images sideways */
   (function () {
     var track = $('#galTrack'); if (!track) return;
     var cards = $$('.gal-card', track), imgs = $$('img', track), dir = rtl ? 1 : -1;
@@ -1695,7 +1698,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
       } } });
     tl.to(track, { x: function () { return dir * dist(); }, ease: 'none' })
       .fromTo(imgs, { xPercent: -dir * 6 }, { xPercent: dir * 6, ease: 'none' }, 0);
-    gsap.from(cards, { y: 70, opacity: 0, duration: 1.2, stagger: .07, ease: 'expo.out', scrollTrigger: { trigger: '#evenings', start: 'top 72%' } });
+    gsap.from(cards, { y: 70, opacity: 0, duration: 1.2, stagger: .07, ease: 'expo.out', scrollTrigger: { trigger: '#lifestyle', start: 'top 72%' } });
   })();
 
   /* payment meters */

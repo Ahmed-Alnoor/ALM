@@ -23,9 +23,9 @@ To swap a picture, replace the file with one of the same name and shape.
 | Story 03 · Facades | `images/story-3-facade.webp` | `images/story-3-facade-m.webp` |
 | Story 04 · Gardens | `images/story-4-gardens.webp` | `images/story-4-gardens-m.webp` |
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
-| Sustainability | `images/green-pavilion-night.webp`, `images/green-courtyard-night.webp` | same |
+| Sustainability | `images/green-pavilion-night.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
-| Evenings gallery (6 night shots) | `images/night-*.webp` (tall, used on every screen) | same |
+| Hotel-standards gallery (8 cards) | `images/interior-*.webp` + night shots `images/night-arcades.webp`, `images/night-dining.webp` (tall, used on every screen) | same |
 | Aerial scene | `images/aerial.webp` | `images/aerial-m.webp` |
 | Location map | `images/location-map.webp`, `images/location-map-sm.webp` | same |
 | Final contact | `images/final-masterplan.webp` | `images/final-masterplan-m.webp` |
