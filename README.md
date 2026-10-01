@@ -23,6 +23,7 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 
 Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
 context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
+On phones and tablets a compact name + mobile form stays pinned to the bottom of the screen once the visitor scrolls past the hero (form `bar`); on large screens the same form docks on the right (form `dock`).
 A `generate_lead` event is pushed to `dataLayer` (GTM) and fired to gtag, Meta Pixel, Snap, TikTok and Yandex Metrika if installed.
 
 ## Floor plans
