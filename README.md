@@ -67,9 +67,8 @@ One-time setup (about 5 minutes, in the Google account that should own the leads
 Each row holds: time received (UAE), name, phone, email, buyer type, empty **Status** and **Notes** columns for the sales team,
 the form used, context (e.g. `suite-605`), level viewed, suite, language, UTM / gclid / fbclid values, page and referrer.
 To change the script later, edit it and use **Deploy › Manage deployments › Edit › New version**, which keeps the same URL.
-Spam guards in the script: a hidden trap field catches simple bots; name and phone are checked; the same phone number
-sent again within 2 minutes is saved once; more than 60 leads in 10 minutes are ignored (`MAX_LEADS_PER_10_MIN`);
-anything that could act as a spreadsheet formula is stored as plain text. Email alerts stop before Google's daily limit
+Checks in the script: a hidden trap field catches simple bots; name and phone are checked; anything that could act
+as a spreadsheet formula is stored as plain text. Every valid lead is saved. Email alerts stop before Google's daily limit
 (about 100 a day on a free Gmail account, 1,500 on Google Workspace); rows in the sheet have no such limit in practice.
 When updating to a newer `Code.gs`, keep your own `NOTIFY_EMAILS` line, then **Manage deployments › Edit › Version: New version › Deploy**.
 
