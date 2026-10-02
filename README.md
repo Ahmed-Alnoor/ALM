@@ -20,12 +20,12 @@ To swap a picture, replace the file with one of the same name and shape.
 | Hero (video) | `video/hero-desktop.mp4` + `images/hero-desktop-poster.webp` | `video/hero-mobile.mp4` (1080×1920, 18 s loop) + `images/hero-mobile-poster.webp` |
 | Story 01 · Arrival | `images/story-1-arrival.webp` | `images/story-1-arrival-m.webp` |
 | Story 02 · Bus station | `images/story-2-promenade.webp` | `images/story-2-promenade-m.webp` |
-| Story 03 · Facades | `images/story-3-facade.webp` | `images/story-3-facade-m.webp` |
+| Story 03 · Daylight | `images/story-3-daylight.webp` | `images/story-3-daylight-m.webp` |
 | Story 04 · Gardens | `images/story-4-gardens.webp` | `images/story-4-gardens-m.webp` |
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
 | Sustainability | `images/green-pavilion-night.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
-| Hotel-standards gallery (8 cards) | `images/interior-*.webp` + night shots `images/night-arcades.webp`, `images/night-dining.webp` (tall, used on every screen) | same |
+| Hotel-standards gallery (8 cards) | `images/interior-*.webp` + night shot `images/night-arcades.webp` (tall, used on every screen) | same |
 | Aerial scene | `images/aerial.webp` | `images/aerial-m.webp` |
 | Location map | `images/location-map.webp`, `images/location-map-sm.webp` | same |
 | Final contact | `images/final-masterplan.webp` | `images/final-masterplan-m.webp` |
