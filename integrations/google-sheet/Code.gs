@@ -12,6 +12,10 @@ var NOTIFY_EMAILS = '';
 var SHEET_NAME = 'Leads';
 var TIMEZONE = 'Asia/Dubai';
 
+// Spam guards. The web app address is public (every form posts to it), so the script itself checks what it saves.
+var MAX_LEADS_PER_10_MIN = 60;   // flood guard: more than this in 10 minutes is ignored (and not emailed)
+var REPEAT_WINDOW_SEC = 120;     // the same phone number sent again within 2 minutes is saved once
+
 // Sheet columns: [header, field sent by the page]. Columns without a field are left for the sales team.
 var COLUMNS = [
   ['Received (UAE time)', '_received'],
@@ -46,18 +50,25 @@ var COLUMNS = [
 function doPost(e) {
   var p = (e && e.parameter) || {};
   if (p.d11_hp) return json_({ ok: true });                       // hidden trap field filled in: a bot
-  var digits = String(p.phone || '').replace(/\D/g, '');
-  if (!String(p.name || '').trim() || digits.length < 7) return json_({ ok: false, error: 'name and phone are required' });
+  var name = String(p.name || '').trim(), digits = String(p.phone || '').replace(/\D/g, '');
+  if (name.length < 2 || name.length > 100 || digits.length < 7 || digits.length > 15) return json_({ ok: false, error: 'name and phone are required' });
+  if (p.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(p.email).trim())) p.email = '';
 
   p._received = Utilities.formatDate(new Date(), TIMEZONE, 'yyyy-MM-dd HH:mm:ss');
+  var cache = CacheService.getScriptCache(), bucket = 'n-' + Math.floor(Date.now() / 600000);
   var lock = LockService.getScriptLock();
   lock.waitLock(20000);                                            // one write at a time
   try {
+    if (cache.get('p-' + digits)) return json_({ ok: true });     // same number a moment ago: already saved
+    var count = Number(cache.get(bucket) || 0);
+    if (count >= MAX_LEADS_PER_10_MIN) return json_({ ok: true });
     sheet_().appendRow(COLUMNS.map(function (c) { return c[1] ? cell_(p[c[1]]) : ''; }));
+    cache.put('p-' + digits, '1', REPEAT_WINDOW_SEC);
+    cache.put(bucket, String(count + 1), 900);
   } finally {
     lock.releaseLock();
   }
-  if (NOTIFY_EMAILS) notify_(p);
+  if (NOTIFY_EMAILS && MailApp.getRemainingDailyQuota() > 2) notify_(p);
   return json_({ ok: true });
 }
 

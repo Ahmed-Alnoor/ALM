@@ -8,7 +8,7 @@ Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the f
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
 - `assets/images/` — every image the page uses (WebP only; nothing unused is kept).
 - `assets/video/` — every video the page uses (H.264 MP4, no sound).
-- `assets/fonts/` — Radikal (UltraThin, Thin, Light, Bold) as WOFF2, converted from the brand files. Arabic uses Noto Kufi Arabic from Google Fonts.
+- `assets/fonts/` — Radikal (Thin, Light, Bold) as WOFF2, converted from the brand files. Arabic uses Noto Kufi Arabic from Google Fonts (also inside Radikal text, so every Arabic word is in the brand Arabic font).
 
 Open `index.html` directly, or host it together with the `assets/` folder.
 
@@ -22,7 +22,7 @@ To swap a picture, replace the file with one of the same name and shape.
 | Story 01 · Arrival | `images/story-1-arrival.webp` | `images/story-1-arrival-m.webp` |
 | Story 02 · Bus station | `images/story-2-promenade.webp` | `images/story-2-promenade-m.webp` |
 | Story 03 · Daylight | `images/story-3-daylight.webp` | `images/story-3-daylight-m.webp` |
-| Story 04 · Gardens | `images/story-4-workspace.webp` | `images/story-4-workspace-m.webp` |
+| Story 04 · Creativity | `images/story-4-workspace.webp` | `images/story-4-workspace-m.webp` |
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
 | Sustainability | `images/green-pavilion-night.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
@@ -46,6 +46,9 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
 context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
 On phones and tablets a compact name + mobile form stays pinned to the bottom of the screen once the visitor scrolls past the hero (form `bar`); on large screens the same form docks on the right (form `dock`).
+One gentle pop-up per visit: it opens when the visitor reaches story 02 (bus station), titled *Drop us a message*, or, on a computer,
+when the cursor leaves the window first, titled *Before you leave, drop us a message*. It never opens after a lead was sent,
+over another window, or while someone is typing in a form (context `message` / `exit` in the sheet).
 A `generate_lead` event is pushed to `dataLayer` (GTM) and fired to gtag, Meta Pixel, Snap, TikTok and Yandex Metrika if installed.
 
 ## Leads in Google Sheets
@@ -64,8 +67,23 @@ One-time setup (about 5 minutes, in the Google account that should own the leads
 Each row holds: time received (UAE), name, phone, email, buyer type, empty **Status** and **Notes** columns for the sales team,
 the form used, context (e.g. `suite-605`), level viewed, suite, language, UTM / gclid / fbclid values, page and referrer.
 To change the script later, edit it and use **Deploy › Manage deployments › Edit › New version**, which keeps the same URL.
-A hidden trap field in every form filters out simple spam bots. Email alerts are limited by Google
+Spam guards in the script: a hidden trap field catches simple bots; name and phone are checked; the same phone number
+sent again within 2 minutes is saved once; more than 60 leads in 10 minutes are ignored (`MAX_LEADS_PER_10_MIN`);
+anything that could act as a spreadsheet formula is stored as plain text. Email alerts stop before Google's daily limit
 (about 100 a day on a free Gmail account, 1,500 on Google Workspace); rows in the sheet have no such limit in practice.
+When updating to a newer `Code.gs`, keep your own `NOTIFY_EMAILS` line, then **Manage deployments › Edit › Version: New version › Deploy**.
+
+## Security
+- The page is static: there is no login, database or admin area on it to break into. Only people with push access to this
+  GitHub repository (or to the folder on the web server) can change it. Turn on two-step verification for that GitHub account.
+- Leads go straight from the visitor's browser to your own Google Sheet. The web app can only add rows; nobody can read
+  the sheet through it. Keep the sheet and the Apps Script project shared only with your team, and turn on two-step
+  verification for that Google account.
+- The name, phone and email fields are excluded from Yandex Metrika Session Replay (`ym-disable-keys`), so what people
+  type is not recorded by Yandex.
+- The page loads scripts only from its own file and Yandex Metrika, and fonts from Google Fonts. A small security policy
+  in `<head>` blocks plugins, stops an injected `<base>` tag from rerouting the page's links, and only lets forms post to
+  the page itself or the lead sheet. If you add Google Ads or Meta Pixel later, no change is needed.
 
 ## Floor plans
 Levels 03, 08 and 09 are the supplied D6 plans. Levels 01, 02 and 04–07 were generated from the typical
