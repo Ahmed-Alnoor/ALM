@@ -36,7 +36,7 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 
 | Key | What it does |
 | --- | --- |
-| `formEndpoint` | URL that receives leads (CRM webhook, Zapier, Make, HubSpot, Google Apps Script). Empty = demo mode (leads are only logged to the browser console). |
+| `formEndpoint` | The Google Sheet web app URL that receives leads (see *Leads in Google Sheets* below). Empty = demo mode: leads are **not saved**, only logged to the visitor's browser console. |
 | `phone` / `phoneDisplay` | Click-to-call number and how it is shown. |
 | `whatsapp` | WhatsApp number, digits only (e.g. `9715XXXXXXXX`). WhatsApp buttons stay hidden until this is set. |
 | `email` | Contact email. |
@@ -46,6 +46,25 @@ Each lead includes name, phone (with country code), email, buyer type (end user 
 context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
 On phones and tablets a compact name + mobile form stays pinned to the bottom of the screen once the visitor scrolls past the hero (form `bar`); on large screens the same form docks on the right (form `dock`).
 A `generate_lead` event is pushed to `dataLayer` (GTM) and fired to gtag, Meta Pixel, Snap, TikTok and Yandex Metrika if installed.
+
+## Leads in Google Sheets
+All five forms send each lead to a Google Sheet through a small Apps Script, `integrations/google-sheet/Code.gs`.
+One-time setup (about 5 minutes, in the Google account that should own the leads):
+
+1. Create a new Google Sheet, e.g. **District 11 leads**.
+2. In the sheet: **Extensions › Apps Script**. Delete the sample code, paste the whole of `integrations/google-sheet/Code.gs`, and save.
+   Optional: put the sales team's email addresses in `NOTIFY_EMAILS` (comma-separated) to get an email for every lead.
+3. In the function menu next to **Run**, pick `testLead` and press **Run**. Approve the permissions (if Google says the app isn't verified,
+   choose *Advanced › Go to project*: it is your own script). A **Leads** tab appears with one test row; delete that row.
+4. **Deploy › New deployment** › type **Web app**. *Execute as:* **Me**. *Who has access:* **Anyone**. Press **Deploy** and copy the
+   **Web app URL** (it ends in `/exec`). Opening it in a browser should say *District 11 lead endpoint is running.*
+5. Put that URL in `formEndpoint` in the `CONFIG` block of `index.html` and publish the page.
+
+Each row holds: time received (UAE), name, phone, email, buyer type, empty **Status** and **Notes** columns for the sales team,
+the form used, context (e.g. `suite-605`), level viewed, suite, language, UTM / gclid / fbclid values, page and referrer.
+To change the script later, edit it and use **Deploy › Manage deployments › Edit › New version**, which keeps the same URL.
+A hidden trap field in every form filters out simple spam bots. Email alerts are limited by Google
+(about 100 a day on a free Gmail account, 1,500 on Google Workspace); rows in the sheet have no such limit in practice.
 
 ## Floor plans
 Levels 03, 08 and 09 are the supplied D6 plans. Levels 01, 02 and 04–07 were generated from the typical

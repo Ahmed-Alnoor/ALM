@@ -217,6 +217,7 @@ html[dir=rtl] select.field{background-position:left 14px center}
 html[dir=rtl] .tel select.field{background-position:right 11px center}
 .tel input{flex:1;min-width:0;text-align:left}
 html[dir=rtl] .tel input{text-align:right}
+.hp{position:absolute;width:1px;height:1px;margin:0;padding:0;border:0;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
 .f .msg{display:none;margin-top:5px;font-size:12px;font-style:normal;color:#A23B26}
 .f.has-err .field{border-color:#C0563D}
 .f.has-err .msg{display:block}
@@ -645,6 +646,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
           <h2 class="card-t" data-i18n="form.title">Get the price list</h2>
         </div>
         <form class="lead-form" data-form="hero" novalidate>
+          <input class="hp" type="text" name="d11_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label class="f"><span data-i18n="f.name">Full name</span><input class="field" id="hero-name" name="name" type="text" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
           <div class="f"><span data-i18n="f.phone">Mobile number</span>
             <div class="tel"><select class="field" id="hero-cc" name="cc" aria-label="Country code"></select><input class="field" id="hero-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required placeholder="50 123 4567" aria-label="Mobile number"></div>
@@ -891,6 +893,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
           <h2 class="card-t" data-i18n="form.title">Get the price list</h2>
         </div>
         <form class="lead-form" data-form="final" novalidate>
+          <input class="hp" type="text" name="d11_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label class="f"><span data-i18n="f.name">Full name</span><input class="field" id="final-name" name="name" type="text" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
           <div class="f"><span data-i18n="f.phone">Mobile number</span>
             <div class="tel"><select class="field" id="final-cc" name="cc" aria-label="Country code"></select><input class="field" id="final-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required placeholder="50 123 4567" aria-label="Mobile number"></div>
@@ -939,6 +942,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
       <h3 class="card-t" style="--i:1" data-i18n="dk.title">Request a call back</h3>
     </div>
     <form class="lead-form stg" data-form="dock" novalidate>
+          <input class="hp" type="text" name="d11_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="f" style="--i:2"><span data-i18n="f.name">Full name</span><input class="field" id="dock-name" name="name" type="text" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
       <div class="f" style="--i:3"><span data-i18n="f.phone">Mobile number</span>
         <div class="tel"><select class="field" id="dock-cc" name="cc" aria-label="Country code"></select><input class="field" id="dock-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required placeholder="50 123 4567" aria-label="Mobile number"></div>
@@ -958,6 +962,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 <!-- ================= MINI FORM (phones & tablets, follows the visitor) ================= -->
 <div class="mbar" id="mbar" data-lead-box>
   <form class="lead-form mform" data-form="bar" novalidate aria-label="Get the price list">
+          <input class="hp" type="text" name="d11_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label class="f"><input class="field" id="bar-name" name="name" type="text" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name" aria-label="Full name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
     <div class="f"><div class="tel"><select class="field" id="bar-cc" name="cc" aria-label="Country code"></select><input class="field" id="bar-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required data-i18n-ph="ph.mobile" placeholder="Mobile number" aria-label="Mobile number"></div><em class="msg" data-i18n="e.phone">Please enter a valid mobile number</em></div>
     <button class="btn btn-terra go" type="submit"><span class="lbl" data-i18n="f.submit">Get the price list</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
@@ -976,6 +981,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
         <h2 class="card-t" id="mTitle">Get the price list</h2>
       </div>
       <form class="lead-form" data-form="modal" novalidate>
+          <input class="hp" type="text" name="d11_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="context" value="price">
         <label class="f"><span data-i18n="f.name">Full name</span><input class="field" id="modal-name" name="name" type="text" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
         <div class="f"><span data-i18n="f.phone">Mobile number</span>
@@ -1043,7 +1049,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
      CONFIG: edit before going live
      ======================================================= */
   var CONFIG = {
-    formEndpoint: '',             // lead webhook (CRM, Zapier, Make, HubSpot, Apps Script). Empty = demo mode.
+    formEndpoint: '',             // Google Sheet web app URL (ends in /exec), see README. Empty = demo mode: leads are NOT saved.
     phone: '80061',
     phoneDisplay: '800 61',
     whatsapp: '',                 // digits only, e.g. '9715XXXXXXXX'. Empty hides WhatsApp buttons.
@@ -1242,6 +1248,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
       btn.classList.add('is-loading'); btn.disabled = true;
       var fd = new FormData(f), data = {};
       fd.forEach(function (v, k) { data[k] = v; });
+      if (data.d11_hp) { markDone(f.dataset.form); btn.classList.remove('is-loading'); btn.disabled = false; return; }   // trap field filled: a bot
       var digits = (data.phone || '').replace(/\D/g, '').replace(/^0+/, '');
       var payload = Object.assign({
         project: 'District 11',
@@ -1260,7 +1267,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
         submitted_at: new Date().toISOString()
       }, utm);
       var send = CONFIG.formEndpoint
-        ? fetch(CONFIG.formEndpoint, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(payload) })
+        ? fetch(CONFIG.formEndpoint, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(payload) })   // Google Apps Script web app (see README)
         : new Promise(function (r) { console.info('[District 11] Demo mode, lead not sent. Set CONFIG.formEndpoint.', payload); setTimeout(r, 650); });
       send.then(function () {
         track('generate_lead', { lead_form: payload.form, lead_context: payload.context, buyer_type: payload.buyer_type, language: lang });
