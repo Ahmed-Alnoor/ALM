@@ -36,7 +36,7 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 
 | Key | What it does |
 | --- | --- |
-| `formEndpoint` | The Google Sheet web app URL that receives leads (see *Leads in Google Sheets* below). Empty = demo mode: leads are **not saved**, only logged to the visitor's browser console. |
+| `formEndpoint` | The Google Sheet web app URL that receives leads (see *Leads in Google Sheets* below). **Connected** to the District 11 leads sheet. If emptied, the page falls back to demo mode and leads are **not saved**. |
 | `phone` / `phoneDisplay` | Click-to-call number and how it is shown. |
 | `whatsapp` | WhatsApp number, digits only (e.g. `9715XXXXXXXX`). WhatsApp buttons stay hidden until this is set. |
 | `email` | Contact email. |
