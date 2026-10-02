@@ -21,7 +21,7 @@ To swap a picture, replace the file with one of the same name and shape.
 | Story 01 · Arrival | `images/story-1-arrival.webp` | `images/story-1-arrival-m.webp` |
 | Story 02 · Bus station | `images/story-2-promenade.webp` | `images/story-2-promenade-m.webp` |
 | Story 03 · Daylight | `images/story-3-daylight.webp` | `images/story-3-daylight-m.webp` |
-| Story 04 · Gardens | `images/story-4-gardens.webp` | `images/story-4-gardens-m.webp` |
+| Story 04 · Gardens | `images/story-4-workspace.webp` | `images/story-4-workspace-m.webp` |
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
 | Sustainability | `images/green-pavilion-night.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
@@ -74,3 +74,6 @@ are in the `POS` and `VIEW` objects in the script. Visitors change floors from t
 a sideways swipe (touch, mouse drag or trackpad) or the left / right arrow keys; the enlarged plan has the same arrows.
 
 Arabic version: add `?lang=ar` to the URL, or use the language toggle.
+
+Colour test: add `?theme=mono` to the URL (e.g. `?theme=mono&lang=ar`) to preview black & white accents on the same paper background.
+The normal page is unchanged. The test colours are the `html.theme-mono` block at the end of the `<style>`.
