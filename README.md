@@ -1,7 +1,8 @@
 # District 11 by Al Marwan — Landing Page
 
 Single-file, bilingual (EN / AR, RTL) lead-generation landing page in the District 11 brand:
-full-screen scenes on the paper palette, solid buttons in the District 11 brand brown (#8F7657), the District 11 and Al Marwan logos, Radikal type.
+full-screen scenes on the paper palette with black & white accents and solid black buttons (the floor plans and the payment plan keep the
+terracotta of the D6 plans), the District 11 and Al Marwan logos, Radikal type.
 Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the file (GSAP Standard License, Lenis MIT).
 
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
@@ -75,5 +76,5 @@ a sideways swipe (touch, mouse drag or trackpad) or the left / right arrow keys;
 
 Arabic version: add `?lang=ar` to the URL, or use the language toggle.
 
-Colour test: add `?theme=mono` to the URL (e.g. `?theme=mono&lang=ar`) to preview black & white accents on the same paper background.
-The normal page is unchanged. The test colours are the `html.theme-mono` block at the end of the `<style>`.
+Colours: the accent colours are the variables at the top of the `<style>` (`:root`); the terracotta kept in the floor plans
+and payment plan is the `.floors,#planBox,.pay` rule at the end of the `<style>`.

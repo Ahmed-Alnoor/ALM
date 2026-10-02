@@ -38,7 +38,6 @@
       if (q === 'ar' || q === 'en') localStorage.setItem('d11-lang', q);
       if ((q || localStorage.getItem('d11-lang')) === 'ar') { r.lang = 'ar'; r.dir = 'rtl'; }
     } catch (e) {}
-    try { if (new URLSearchParams(location.search).get('theme') === 'mono') r.classList.add('theme-mono'); } catch (e) {}   // colour test: black & white accents
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('motion');
   })(document);
 </script>
@@ -56,16 +55,16 @@
   --sand:#EFE7DC;
   --sand-2:#E6DACB;
   --white:#FCFBF8;
-  --terra:#BD785B;
-  --terra-d:#9A5A41;
-  --terra-l:#F1E3DA;
-  --ink:#3A3835;
-  --ink-2:#66625C;
-  --line:rgba(58,56,53,.13);
-  --line-2:rgba(58,56,53,.24);
-  --btn:#8F7657;             /* buttons: District 11 brand brown, solid (palette: green #BBCF86, gray #A8AAA9, brown #8F7657, peach #DEA880, beige #D2BCA1, cream #E4DCCE) */
-  --btn-h:#7A6449;           /* button hover: the same brown, one step deeper */
-  --g-text:linear-gradient(120deg,#C98A6E 0%,#9A5A41 100%);
+  --terra:#111;              /* accents: black & white on the warm paper. The floor plans and payment plan keep terracotta (see .floors below) */
+  --terra-d:#111;
+  --terra-l:#E6E3DD;
+  --ink:#111;
+  --ink-2:#55524E;
+  --line:rgba(0,0,0,.12);
+  --line-2:rgba(0,0,0,.22);
+  --btn:#111;                /* buttons: solid black */
+  --btn-h:#3A3A3A;
+  --g-text:linear-gradient(120deg,#111 0%,#111 100%);
   --g-page:linear-gradient(180deg,#F6F4EE 0%,#F2EBE2 100%);
   --g-page-r:linear-gradient(180deg,#F2EBE2 0%,#F6F4EE 100%);
   --shade:44,31,23;          /* warm brown used for gradients over imagery */
@@ -123,8 +122,8 @@ html[lang=ar] .h2{font-size:clamp(1.5rem,2.3vw + .6rem,3rem)}
 /* ---------- buttons ---------- */
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 28px;border-radius:var(--r);font:500 11.5px/1.2 var(--font);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden;isolation:isolate;transition:color .4s,border-color .4s,background-color .4s,box-shadow .6s var(--out)}
 html[lang=ar] .btn{font:500 14px/1.2 var(--ar)}
-.btn-terra{background:var(--btn);color:#fff;box-shadow:0 16px 32px -18px rgba(95,76,52,.8)}
-.btn-terra:hover{background:var(--btn-h);box-shadow:0 22px 40px -18px rgba(95,76,52,.9)}
+.btn-terra{background:var(--btn);color:#fff;box-shadow:0 16px 32px -18px rgba(0,0,0,.55)}
+.btn-terra:hover{background:var(--btn-h);box-shadow:0 22px 40px -18px rgba(0,0,0,.65)}
 .btn-line{border:1px solid var(--line-2);color:var(--ink)}
 .btn-line:hover{border-color:var(--terra);color:var(--terra-d)}
 .btn-glass{border:1px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
@@ -168,11 +167,11 @@ html[lang=ar] .hdr .btn{font-size:13px}
 .hero-copy{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--hdr) + 24px) 0 54px}
 .sold-badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:9px 14px 9px 12px;border-radius:var(--r);background:rgba(252,251,248,.16);border:1px solid rgba(255,255,255,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:500 10.5px/1 var(--font);letter-spacing:.2em;text-transform:uppercase}
 html[lang=ar] .sold-badge{font:500 12.5px/1 var(--ar)}
-.sold-badge i{position:relative;width:6px;height:6px;background:#F2B79C;transform:rotate(45deg)}
-.sold-badge i::after{content:"";position:absolute;inset:0;background:#F2B79C;animation:ping 2s infinite}
+.sold-badge i{position:relative;width:6px;height:6px;background:#fff;transform:rotate(45deg)}
+.sold-badge i::after{content:"";position:absolute;inset:0;background:#fff;animation:ping 2s infinite}
 @keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(3);opacity:0}}
 .hero .h1{margin:16px 0 12px;color:#fff;text-shadow:0 2px 30px rgba(var(--shade),.25)}
-.hero .h1 strong{color:#F4C9B4}
+.hero .h1 strong{color:#fff}
 .hero-sub{max-width:40ch;font-size:clamp(.95rem,.5vw + .85rem,1.15rem);line-height:1.6;color:rgba(255,255,255,.88)}
 .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.28)}
 .hs b{display:block;font:300 clamp(1.45rem,2vw + .8rem,2.4rem)/1 var(--font);letter-spacing:-.01em;white-space:nowrap}
@@ -212,7 +211,7 @@ html[lang=ar] .field{font-family:var(--ar)}
 html[lang=ar] .tel .field{font-family:"Radikal","Noto Kufi Arabic",Tahoma,sans-serif}
 .field::placeholder{color:#8F8A82}
 .field:focus{border-color:var(--terra);background-color:var(--white);box-shadow:0 0 0 4px var(--terra-l)}
-select.field{cursor:pointer;padding-inline-end:34px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239A5A41' stroke-width='1.3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+select.field{cursor:pointer;padding-inline-end:34px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23111' stroke-width='1.3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 html[dir=rtl] select.field{background-position:left 14px center}
 .tel{display:flex;gap:8px;direction:ltr}
 .tel select.field{flex:0 0 98px;padding:0 26px 0 12px;background-position:right 11px center}
@@ -243,7 +242,6 @@ html[lang=ar] .thanks h3{font:400 22px/1.4 var(--ar)}
 
 /* ---------- intro ---------- */
 .intro{position:relative;padding:clamp(88px,14vw,170px) 0 clamp(72px,10vw,130px);background:var(--g-page);overflow:hidden}
-.intro::before{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(189,120,91,.1) 0%,rgba(189,120,91,0) 42%);pointer-events:none}
 .statement{margin-top:26px;max-width:24ch;font:300 clamp(1.4rem,2.2vw + .8rem,3.1rem)/1.25 var(--font);letter-spacing:-.015em;color:var(--ink)}
 html[lang=ar] .statement{font:300 clamp(1.3rem,2vw + .7rem,2.6rem)/1.6 var(--ar);max-width:30ch}
 .sold{display:grid;gap:18px;margin-top:clamp(48px,7vw,84px);padding-top:28px;border-top:1px solid var(--line-2)}
@@ -489,12 +487,12 @@ html[lang=ar] .dev-i b{font:400 18px/1.4 var(--ar)}
 .final::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(var(--shade),.52) 0%,rgba(var(--shade),.22) 50%,rgba(var(--shade),.06) 100%),linear-gradient(180deg,rgba(246,244,238,.18) 0%,rgba(246,244,238,0) 40%)}
 .final .h2,.final .contacts{text-shadow:0 2px 24px rgba(var(--shade),.35)}
 .final-grid{position:relative;z-index:2;display:grid;gap:36px;align-items:center}
-.final .eyebrow{color:#F4C9B4}
+.final .eyebrow{color:#fff}
 .final .h2{color:#fff}
-.final .h2 strong{color:#F4C9B4}
+.final .h2 strong{color:#fff}
 .contacts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font:400 15px/1 var(--font)}
 .contacts a{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,.92)}
-.contacts svg{width:17px;height:17px;color:#F4C9B4}
+.contacts svg{width:17px;height:17px;color:#fff}
 @media (min-width:1100px){.final-grid{grid-template-columns:minmax(0,1fr) 400px;gap:96px}}
 
 /* ---------- footer ---------- */
@@ -593,18 +591,8 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .12em;margin:0 -.04em -.12em}
 .w>span{display:inline-block}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
-/* ---------- colour test: add ?theme=mono to the address for black & white accents (paper background unchanged) ---------- */
-html.theme-mono{--terra:#111;--terra-d:#111;--terra-l:#E6E3DD;--btn:#111;--btn-h:#3A3A3A;--ink:#111;--ink-2:#55524E;--line:rgba(0,0,0,.12);--line-2:rgba(0,0,0,.22);--g-text:linear-gradient(120deg,#111 0%,#111 100%)}
-html.theme-mono .hero .h1 strong,html.theme-mono .final .h2 strong,html.theme-mono .final .eyebrow,html.theme-mono .contacts svg{color:#fff}
-html.theme-mono .sold-badge i,html.theme-mono .sold-badge i::after{background:#fff}
-html.theme-mono .btn-terra{box-shadow:0 16px 32px -18px rgba(0,0,0,.55)}
-html.theme-mono .btn-terra:hover{box-shadow:0 22px 40px -18px rgba(0,0,0,.65)}
-html.theme-mono select.field{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23111' stroke-width='1.3'/%3E%3C/svg%3E")}
-html.theme-mono .intro::before{background:none}
-html.theme-mono .slab.is-active .slab-top{box-shadow:0 0 0 6px rgba(0,0,0,.12)}
-html.theme-mono .slab.is-active .slab-base{background:#7d7d7d}
-html.theme-mono .spot{box-shadow:0 6px 16px -8px rgba(0,0,0,.55)}
-html.theme-mono #planImg,html.theme-mono #planBig,html.theme-mono .slab-top{filter:grayscale(1)}   /* the floor plans are drawn in terracotta */
+/* ---------- the floor plans (section, enlarged plan) and the payment plan keep the terracotta of the D6 plans; buttons stay black ---------- */
+.floors,#planBox,.pay{--terra:#BD785B;--terra-d:#9A5A41;--terra-l:#F1E3DA;--ink:#3A3835;--ink-2:#66625C;--line:rgba(58,56,53,.13);--line-2:rgba(58,56,53,.24);--g-text:linear-gradient(120deg,#C98A6E 0%,#9A5A41 100%)}
 </style>
 </head>
 <body>
@@ -1079,65 +1067,65 @@ html.theme-mono #planImg,html.theme-mono #planBig,html.theme-mono .slab-top{filt
   };
 
   var AR = {
-    _title: 'ديستركت 11 من المروان | أول حي مكاتب فائق الفخامة في الشارقة',
+    _title: 'ديستركت 11 من المروان | أول حي للمكاتب فائقة التطور في الشارقة',
     'hdr.cta': 'استفسر',
     'hero.sold': 'تم بيع <span class="ltr">75%</span>',
-    'hero.title': 'أول حي <strong>مكاتب فائق الفخامة</strong> في الشارقة',
-    'hero.sub': '3.5 مليون قدم مربع من المكاتب والمرافق في عنوان واحد متكامل التخطيط.',
-    'hs.monthly': 'شهرياً (درهم)', 'hs.q4': '2029', 'hs.hand': 'التسليم · الربع الأخير', 'hs.down': 'دفعة أولى', 'hs.plan': 'خطة الدفع',
+    'hero.title': 'أول <strong>حي للمكاتب فائقة التطور</strong> في الشارقة',
+    'hero.sub': '3.5 مليون قدم مربع من المكاتب والمرافق في وجهة واحدة متكاملة التخطيط.',
+    'hs.monthly': 'شهرياً (درهم)', 'hs.q4': 'الربع الرابع 2029', 'hs.hand': 'التسليم', 'hs.down': 'الدفعة الأولى', 'hs.plan': 'خطة الدفع',
     'hero.scroll': 'مرّر',
     'form.k': 'سجّل اهتمامك', 'form.title': 'احصل على قائمة الأسعار',
     'f.name': 'الاسم الكامل', 'f.phone': 'رقم الجوال', 'f.email': 'البريد الإلكتروني (اختياري)', 'f.iam': 'أنا',
     'o.end': 'مستخدم نهائي', 'o.inv': 'مستثمر', 'o.brk': 'وسيط عقاري',
     'f.submit': 'احصل على قائمة الأسعار', 'f.consent': 'بإرسال النموذج، توافق على تواصل المروان للتطوير العقاري معك بخصوص ديستركت 11.',
     'f.error': 'تعذّر إرسال بياناتك. يرجى المحاولة مرة أخرى أو الاتصال على <span class="ltr">800 61</span>.',
-    'e.name': 'يرجى إدخال اسمك', 'e.phone': 'يرجى إدخال رقم جوال صحيح', 'e.email': 'يرجى إدخال بريد إلكتروني صحيح', 'ph.name': 'اسمك', 'ph.mobile': 'رقم الجوال',
-    'th.title': 'شكراً لك', 'th.text': 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', 'th.wa': 'واتساب', 'th.call': 'اتصل الآن',
+    'e.name': 'يرجى إدخال اسمك', 'e.phone': 'يرجى إدخال رقم جوال صحيح', 'e.email': 'يرجى إدخال عنوان بريد إلكتروني صحيح', 'ph.name': 'اسمك', 'ph.mobile': 'رقم الجوال',
+    'th.title': 'شكراً لك', 'th.text': 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', 'th.wa': 'تواصل معنا عبر واتساب', 'th.call': 'اتصل الآن',
     'in.eyebrow': 'ديستركت 11 · مويلح، الشارقة',
-    'in.statement': 'إحدى عشرة بناية من تصميم HWKN نيويورك حول ساحات خضراء. منتجع أعمال يُستكشف سيراً، مباشرة على شارع E311.',
-    'in.sold': 'تم بيعها', 'in.left': 'لم يتبقَّ سوى ربع وحدات الحي.', 'in.cta': 'احجز وحدتك',
-    'mi.1': 'بناية', 'mi.2': 'قدم مربع', 'mi.3': 'غرفة فندقية', 'mi.4': 'موقف سيارات',
-    's1.n': '01 · الوصول', 's1.t': 'عنوان بارز على شارع E311.',
-    's2.n': '02 · محطة الحافلات', 's2.t': 'محطة حافلات داخل الحي.', 's2.p': 'وصول سهل إلى ديستركت 11 للجميع.',
-    's3.n': '03 · ضوء النهار', 's3.t': 'كاسرات شمس تُلطّف ضوء الصحراء.',
-    's4.n': '04 · الحدائق', 's4.t': 'مساحات عمل تنفتح على الحدائق.',
-    's5.n': '05 · الردهات', 's5.t': 'ردهات بهدوء الفنادق الراقية.',
+    'in.statement': 'إحدى عشرة بناية من تصميم HWKN في نيويورك، تحيط بها ساحات خضراء. وجهة أعمال متكاملة يمكن التنقل فيها سيراً، مباشرة على شارع E311.',
+    'in.sold': 'تم بيع <span class="ltr">75%</span>', 'in.left': 'لم يتبقَّ سوى ربع الحي.', 'in.cta': 'احجز وحدتك',
+    'mi.1': 'مبنى', 'mi.2': 'قدم مربع', 'mi.3': 'غرفة فندقية', 'mi.4': 'موقف سيارات',
+    's1.n': '01 · الوصول', 's1.t': 'وجهة بارزة على شارع E311.',
+    's2.n': '02 · محطة الحافلات', 's2.t': 'محطة حافلات داخل المشروع.', 's2.p': 'سهولة الوصول إلى ديستركت 11 للجميع.',
+    's3.n': '03 · ضوء النهار', 's3.t': 'كاسرات شمس تخفف من وهج شمس الصحراء.',
+    's4.n': '04 · الحدائق', 's4.t': 'مساحات عمل تمتد إلى الحدائق.',
+    's5.n': '05 · الردهات', 's5.t': 'ردهات بأجواء هادئة تضاهي الفنادق.',
     'sn1.n': 'الكونسيرج', 'sn1.t': 'استقبال يليق بعملائك.', 'sn1.cta': 'احجز جولة خاصة',
-    'sn3.n': 'مويلح · الشارقة', 'sn3.t': 'عنوان الأعمال الجديد في الشارقة.',
+    'sn3.n': 'مويلح · الشارقة', 'sn3.t': 'وجهة الأعمال الجديدة في الشارقة.',
     'gl.eyebrow': 'الحياة في ديستركت 11', 'gl.title': 'تشطيبات <strong>بمعايير فندقية.</strong>',
     'g1': 'الساحة', 'g2': 'ردهات مميزة', 'g3': 'ردهات الاستقبال', 'g4': 'صالات خضراء',
     'g5': 'قاعة الفعاليات', 'g6': 'استوديو العافية', 'g7': 'المقاهي', 'g8': 'خدمة صف السيارات',
-    'gr.eyebrow': 'مصمم مع الطبيعة', 'gr.title': 'خُطّط بالذكاء الاصطناعي. <strong>وصُمّم حول الطبيعة.</strong>',
-    'p1': 'أنظمة طاقة محسّنة بالذكاء الاصطناعي', 'p2': 'مصمم لمناخ الشارقة', 'p3': 'ساحات خضراء مترابطة سيراً', 'p4': 'محطات مخصصة لشحن السيارات الكهربائية',
+    'gr.eyebrow': 'مصمم بانسجام مع الطبيعة', 'gr.title': 'مخطط بالذكاء الاصطناعي. <strong>ومصمم بانسجام مع الطبيعة.</strong>',
+    'p1': 'أنظمة طاقة محسّنة بالذكاء الاصطناعي', 'p2': 'مصمم ليتناسب مع مناخ الشارقة', 'p3': 'ساحات خضراء مترابطة يمكن التنقل بينها سيراً', 'p4': 'محطات مخصصة لشحن السيارات الكهربائية',
     'fl.eyebrow': 'المبنى D6 · الطوابق 01–09', 'fl.title': 'اختر <strong>طابقك.</strong>',
-    'fl.sold': 'تم بيع <span class="ltr">75%</span>', 'fl.cta': 'حمّل المخططات', 'fl.hint': 'اسحب المخطط أو استخدم الأسهم للتنقل بين الطوابق. اضغط على أي جناح للاستفسار. المخططات استرشادية.', 'pn.lv': 'الطابق',
+    'fl.sold': 'تم بيع <span class="ltr">75%</span>', 'fl.cta': 'حمّل مخططات الطوابق', 'fl.hint': 'مرّر المخطط أو استخدم الأسهم للتنقل بين الطوابق. اضغط على أي جناح للاستفسار. المخططات استرشادية.', 'pn.lv': 'الطابق',
     'sc.cta': 'استفسر عن هذا الجناح', 'pl.zoom': 'تكبير', 'pl.avail': 'تحقق من التوفر',
     'pay.eyebrow': 'خطة الدفع', 'pay.title': '<strong>5%</strong> دفعة أولى. خطة 40/60.',
     'pay.monthly': 'أقساط شهرية', 'pay.cta': 'احصل على جدول الدفع',
-    'pay.s1': 'الدفعة الأولى', 'pay.s2': 'خلال الإنشاء', 'pay.s3': 'عند التسليم · الربع الأخير 2029',
+    'pay.s1': 'الدفعة الأولى', 'pay.s2': 'خلال الإنشاء', 'pay.s3': 'عند التسليم · الربع الرابع 2029',
     'am.eyebrow': 'المرافق', 'am.title': 'كل ما تحتاجه <strong>على بُعد خطوات.</strong>',
-    'a1': 'فندق أعمال من 368 غرفة', 'a2': 'عمل مشترك مستوحى من الطبيعة', 'a3': 'صالات على الأسطح', 'a4': 'العافية واللياقة',
-    'a5': 'مقاهٍ ومطاعم', 'a6': 'أكثر من 3,000 موقف', 'a7': 'حضانات ورعاية صحية', 'a8': 'إدارة ذكية للمباني',
+    'a1': 'فندق أعمال من 368 غرفة', 'a2': 'مساحات عمل مشتركة مستوحاة من الطبيعة', 'a3': 'صالات على الأسطح', 'a4': 'العافية واللياقة',
+    'a5': 'مقاهٍ ومطاعم', 'a6': 'أكثر من 3,000 موقف سيارات', 'a7': 'حضانات وخدمات رعاية صحية', 'a8': 'إدارة المباني بالذكاء الاصطناعي',
     'lc.eyebrow': 'الموقع', 'lc.title': 'مباشرة على <strong>شارع E311.</strong>',
-    'l1': 'سيتي سنتر الزاهية', 'l1t': 'بالجوار', 'l2': 'الزاهية · الجادة · الفلاح', 'l2t': 'متاخمة',
+    'l1': 'سيتي سنتر الزاهية', 'l1t': 'بجوار المشروع أو على بُعد خطوات', 'l2': 'الزاهية · الجادة · الفلاح', 'l2t': 'مجاورة',
     'l3': 'المدينة الجامعية', 'l3t': '5 دقائق', 'l4': 'مطار الشارقة الدولي', 'l4t': '5 دقائق',
-    'lc.cta': 'احجز زيارة لمعرض المبيعات',
-    'dv.k1': 'نبني الإمارات منذ', 'dv.k2': 'المخطط الرئيسي والتصميم',
-    'fn.eyebrow': 'تبقّى <span class="ltr">25%</span> فقط', 'fn.title': 'احجز عنوانك في <strong>ديستركت 11.</strong>',
+    'lc.cta': 'احجز زيارة إلى معرض المبيعات',
+    'dv.k1': 'نبني في الإمارات منذ', 'dv.k2': 'المخطط الرئيسي والهندسة المعمارية',
+    'fn.eyebrow': 'لم يتبقَّ سوى <span class="ltr">25%</span>', 'fn.title': 'احجز موقعك في <strong>ديستركت 11.</strong>',
     'c.wa': 'واتساب',
-    'dk.k': 'تم بيع <span class="ltr">75%</span>', 'dk.title': 'اطلب اتصالاً', 'dk.submit': 'اتصلوا بي', 'dk.tab': 'استفسر الآن',
+    'dk.k': 'تم بيع <span class="ltr">75%</span>', 'dk.title': 'اطلب معاودة الاتصال', 'dk.submit': 'معاودة الاتصال', 'dk.tab': 'استفسر الآن',
     'ft.addr': 'مكتب المبيعات: مدينة تلال، شارع الإمارات (E611)، الشارقة · الاثنين إلى الجمعة، 9:30 صباحاً حتى 7:00 مساءً',
-    'ft.disc': 'الصور تصورات فنية. المخططات والتوفر وشروط الدفع استرشادية وقابلة للتغيير، وتسري اتفاقية البيع والشراء.',
+    'ft.disc': 'الصور تصورات فنية. المخططات والتوافر وشروط الدفع استرشادية وقابلة للتغيير، وتسري اتفاقية البيع والشراء.',
     'ft.rights': 'المروان للتطوير العقاري.'
   };
 
   var MODAL = {
     price:    { en: ['Get the price list', 'Send me the price list'], ar: ['احصل على قائمة الأسعار', 'أرسلوا لي قائمة الأسعار'] },
-    plans:    { en: ['Download floor plans', 'Send me the floor plans'], ar: ['حمّل المخططات', 'أرسلوا لي المخططات'] },
+    plans:    { en: ['Download floor plans', 'Send me the floor plans'], ar: ['حمّل مخططات الطوابق', 'أرسلوا لي مخططات الطوابق'] },
     avail:    { en: ['Check availability', 'Check availability'], ar: ['تحقق من التوفر', 'تحقق من التوفر'] },
-    payment:  { en: ['Get the payment schedule', 'Send me the schedule'], ar: ['احصل على جدول الدفع', 'أرسلوا لي الجدول'] },
-    visit:    { en: ['Book a sales gallery visit', 'Request a visit'], ar: ['احجز زيارة لمعرض المبيعات', 'اطلب موعد الزيارة'] },
-    callback: { en: ['Request a call back', 'Call me back'], ar: ['اطلب اتصالاً', 'اتصلوا بي'] },
+    payment:  { en: ['Get the payment schedule', 'Send me the schedule'], ar: ['احصل على جدول الدفع', 'أرسلوا لي جدول الدفع'] },
+    visit:    { en: ['Book a sales gallery visit', 'Request a visit'], ar: ['احجز زيارة إلى معرض المبيعات', 'اطلب زيارة'] },
+    callback: { en: ['Request a call back', 'Call me back'], ar: ['اطلب معاودة الاتصال', 'معاودة الاتصال'] },
     suite:    { en: ['Office {n}, level {l}', 'Send me the details'], ar: ['المكتب {n}، الطابق {l}', 'أرسلوا لي التفاصيل'] },
     exit:     { en: ['Before you go: 75% is sold', 'Send me the price list'], ar: ['قبل أن تغادر: تم بيع \u206675%\u2069', 'أرسلوا لي قائمة الأسعار'] }
   };
@@ -1153,7 +1141,7 @@ html.theme-mono #planImg,html.theme-mono #planBig,html.theme-mono .slab-top{filt
   var VIEW_TXT = {
     plaza: { en: 'Grand Plaza view', ar: 'إطلالة على الساحة الكبرى' },
     city: { en: 'City view', ar: 'إطلالة على المدينة' },
-    both: { en: 'Corner suite · Plaza and city views', ar: 'جناح زاوية · إطلالة على الساحة والمدينة' }
+    both: { en: 'Corner suite · Plaza and city views', ar: 'جناح زاوية · إطلالتان على الساحة والمدينة' }
   };
   var CC = [['+971','🇦🇪'],['+966','🇸🇦'],['+965','🇰🇼'],['+974','🇶🇦'],['+973','🇧🇭'],['+968','🇴🇲'],['+20','🇪🇬'],['+962','🇯🇴'],['+961','🇱🇧'],['+964','🇮🇶'],['+91','🇮🇳'],['+92','🇵🇰'],['+44','🇬🇧'],['+1','🇺🇸'],['+7','🇷🇺'],['+86','🇨🇳'],['+49','🇩🇪'],['+33','🇫🇷']];
 
