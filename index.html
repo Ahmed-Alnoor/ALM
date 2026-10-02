@@ -99,6 +99,7 @@ ul{list-style:none;margin:0;padding:0}
 :focus-visible{outline:2px solid var(--terra);outline-offset:3px}
 .wrap{width:calc(100% - 2*var(--gut));max-width:1240px;margin-inline:auto}
 .ltr{direction:ltr;unicode-bidi:isolate}
+html[dir=rtl] .ltr{text-align:right}           /* numbers, phones and e-mails line up with the Arabic text around them */
 
 /* ---------- type ---------- */
 .eyebrow{display:inline-flex;align-items:center;gap:12px;font:500 10.5px/1.4 var(--font);letter-spacing:.28em;text-transform:uppercase;color:var(--terra-d)}
@@ -415,6 +416,8 @@ html[lang=ar] .suite-card .btn{font-size:12.5px}
   .lv{width:auto;min-width:150px;height:34px;padding:0 16px;border-radius:var(--r);display:flex;align-items:center;gap:6px;letter-spacing:.14em;font-size:11px;text-transform:uppercase}
   .lv-t{display:inline}
   .lv[aria-pressed=true]{transform:translateX(10px)}
+  html[dir=rtl] .lv[aria-pressed=true]{transform:translateX(-10px)}
+  html[dir=rtl] .lv{direction:rtl}             /* "الطابق 09": word first, the row of numbers stays 01→09 */
   .stage{--sh:min(76svh,720px);height:var(--sh)}
   .plan{position:absolute;inset:0;align-items:center}
   .plan-sheet{width:min(100%,calc(var(--sh) * .8003))}
@@ -518,6 +521,7 @@ html[lang=ar] .dev-i b{font:400 18px/1.4 var(--ar)}
 .dock .card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--btn)}
 .dock .card-t{margin-top:8px;font-size:22px}
 html[lang=ar] .dock .card-t{font-size:18px}
+html[dir=rtl] .dock-x{right:auto;left:12px}
 .dock .f{margin-top:9px}
 .dock .field{height:44px;font-size:15px}
 .dock .tel select.field{flex-basis:90px}
@@ -1064,7 +1068,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
   var AR = {
     _title: 'ديستركت 11 من المروان | أول حي مكاتب فائق الفخامة في الشارقة',
     'hdr.cta': 'استفسر',
-    'hero.sold': 'تم بيع 75%',
+    'hero.sold': 'تم بيع <span class="ltr">75%</span>',
     'hero.title': 'أول حي <strong>مكاتب فائق الفخامة</strong> في الشارقة',
     'hero.sub': '3.5 مليون قدم مربع من المكاتب والمرافق في عنوان واحد متكامل التخطيط.',
     'hs.monthly': 'شهرياً (درهم)', 'hs.q4': '2029', 'hs.hand': 'التسليم · الربع الأخير', 'hs.down': 'دفعة أولى', 'hs.plan': 'خطة الدفع',
@@ -1073,7 +1077,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     'f.name': 'الاسم الكامل', 'f.phone': 'رقم الجوال', 'f.email': 'البريد الإلكتروني (اختياري)', 'f.iam': 'أنا',
     'o.end': 'مستخدم نهائي', 'o.inv': 'مستثمر', 'o.brk': 'وسيط عقاري',
     'f.submit': 'احصل على قائمة الأسعار', 'f.consent': 'بإرسال النموذج، توافق على تواصل المروان للتطوير العقاري معك بخصوص ديستركت 11.',
-    'f.error': 'تعذّر إرسال بياناتك. يرجى المحاولة مرة أخرى أو الاتصال على 800 61.',
+    'f.error': 'تعذّر إرسال بياناتك. يرجى المحاولة مرة أخرى أو الاتصال على <span class="ltr">800 61</span>.',
     'e.name': 'يرجى إدخال اسمك', 'e.phone': 'يرجى إدخال رقم جوال صحيح', 'e.email': 'يرجى إدخال بريد إلكتروني صحيح', 'ph.name': 'اسمك', 'ph.mobile': 'رقم الجوال',
     'th.title': 'شكراً لك', 'th.text': 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', 'th.wa': 'واتساب', 'th.call': 'اتصل الآن',
     'in.eyebrow': 'ديستركت 11 · مويلح، الشارقة',
@@ -1093,7 +1097,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     'gr.eyebrow': 'مصمم مع الطبيعة', 'gr.title': 'خُطّط بالذكاء الاصطناعي. <strong>وصُمّم حول الطبيعة.</strong>',
     'p1': 'أنظمة طاقة محسّنة بالذكاء الاصطناعي', 'p2': 'مصمم لمناخ الشارقة', 'p3': 'ساحات خضراء مترابطة سيراً', 'p4': 'محطات مخصصة لشحن السيارات الكهربائية',
     'fl.eyebrow': 'المبنى D6 · الطوابق 01–09', 'fl.title': 'اختر <strong>طابقك.</strong>',
-    'fl.sold': 'تم بيع 75%', 'fl.cta': 'حمّل المخططات', 'fl.hint': 'اسحب المخطط أو استخدم الأسهم للتنقل بين الطوابق. اضغط على أي جناح للاستفسار. المخططات استرشادية.', 'pn.lv': 'الطابق',
+    'fl.sold': 'تم بيع <span class="ltr">75%</span>', 'fl.cta': 'حمّل المخططات', 'fl.hint': 'اسحب المخطط أو استخدم الأسهم للتنقل بين الطوابق. اضغط على أي جناح للاستفسار. المخططات استرشادية.', 'pn.lv': 'الطابق',
     'sc.cta': 'استفسر عن هذا الجناح', 'pl.zoom': 'تكبير', 'pl.avail': 'تحقق من التوفر',
     'pay.eyebrow': 'خطة الدفع', 'pay.title': '<strong>5%</strong> دفعة أولى. خطة 40/60.',
     'pay.monthly': 'أقساط شهرية', 'pay.cta': 'احصل على جدول الدفع',
@@ -1106,10 +1110,9 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     'l3': 'المدينة الجامعية', 'l3t': '5 دقائق', 'l4': 'مطار الشارقة الدولي', 'l4t': '5 دقائق',
     'lc.cta': 'احجز زيارة لمعرض المبيعات',
     'dv.k1': 'نبني الإمارات منذ', 'dv.k2': 'المخطط الرئيسي والتصميم',
-    'fn.eyebrow': 'تبقّى 25% فقط', 'fn.title': 'احجز عنوانك في <strong>ديستركت 11.</strong>',
+    'fn.eyebrow': 'تبقّى <span class="ltr">25%</span> فقط', 'fn.title': 'احجز عنوانك في <strong>ديستركت 11.</strong>',
     'c.wa': 'واتساب',
-    'dk.k': 'تم بيع 75%', 'dk.title': 'اطلب اتصالاً', 'dk.submit': 'اتصلوا بي', 'dk.tab': 'استفسر الآن',
-    'mb.call': 'اتصال', 'mb.wa': 'واتساب', 'mb.reg': 'استفسر الآن',
+    'dk.k': 'تم بيع <span class="ltr">75%</span>', 'dk.title': 'اطلب اتصالاً', 'dk.submit': 'اتصلوا بي', 'dk.tab': 'استفسر الآن',
     'ft.addr': 'مكتب المبيعات: مدينة تلال، شارع الإمارات (E611)، الشارقة · الاثنين إلى الجمعة، 9:30 صباحاً حتى 7:00 مساءً',
     'ft.disc': 'الصور تصورات فنية. المخططات والتوفر وشروط الدفع استرشادية وقابلة للتغيير، وتسري اتفاقية البيع والشراء.',
     'ft.rights': 'المروان للتطوير العقاري.'
@@ -1123,7 +1126,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     visit:    { en: ['Book a sales gallery visit', 'Request a visit'], ar: ['احجز زيارة لمعرض المبيعات', 'اطلب موعد الزيارة'] },
     callback: { en: ['Request a call back', 'Call me back'], ar: ['اطلب اتصالاً', 'اتصلوا بي'] },
     suite:    { en: ['Office {n}, level {l}', 'Send me the details'], ar: ['المكتب {n}، الطابق {l}', 'أرسلوا لي التفاصيل'] },
-    exit:     { en: ['Before you go: 75% is sold', 'Send me the price list'], ar: ['قبل أن تغادر: تم بيع 75%', 'أرسلوا لي قائمة الأسعار'] }
+    exit:     { en: ['Before you go: 75% is sold', 'Send me the price list'], ar: ['قبل أن تغادر: تم بيع \u206675%\u2069', 'أرسلوا لي قائمة الأسعار'] }
   };
 
   /* D6 floors. 03, 08 and 09 are the supplied plans; the other levels use the typical layout. */
