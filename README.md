@@ -28,7 +28,7 @@ To swap a picture, replace the file with one of the same name and shape.
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
 | Sustainability | `images/green-pavilion-night.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
-| Hotel-standards gallery (8 cards; computers: slides sideways as you scroll; phones and tablets: swipe sideways, and the cards drift on their own, pausing 3.5 s after a swipe) | `images/interior-*.webp` + night shot `images/night-arcades.webp` (tall, used on every screen) | same |
+| Hotel-standards gallery (8 cards; computers: slides sideways as you scroll; phones and tablets: swipe sideways only, the page scrolls from above or below the cards; the cards drift on their own in an endless loop, pausing 3.5 s after a swipe) | `images/interior-*.webp` + night shot `images/night-arcades.webp` (tall, used on every screen) | same |
 | Aerial scene | `images/aerial.webp` | `images/aerial-m.webp` |
 | Location map | `images/location-map.webp`, `images/location-map-sm.webp` | same |
 | Final contact | `images/final-masterplan.webp` | `images/final-masterplan-m.webp` |
@@ -47,7 +47,7 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 
 Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
 context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
-On phones and tablets a compact name + mobile form stays pinned to the bottom of the screen once the visitor scrolls past the hero (form `bar`); on large screens the same form docks on the right (form `dock`).
+The header has **Call** (800 61) and **Enquire** buttons. On phones and tablets a bar with the same two buttons stays at the bottom of the screen once the visitor scrolls past the hero; on large screens a compact name + mobile form docks on the right instead (form `dock`).
 One gentle pop-up per visit: it opens when the visitor reaches story 02 (bus station), titled *Drop us a message*, or, on a computer,
 when the cursor leaves the window first, titled *Before you leave, drop us a message*. It never opens after a lead was sent,
 over another window, or while someone is typing in a form (context `message` / `exit` in the sheet).

@@ -149,6 +149,10 @@ html[dir=rtl] .btn:hover .arr{transform:scaleX(-1) translateX(5px)}
 .lang{height:38px;min-width:44px;padding:0 12px;border:1px solid currentColor;border-radius:var(--r);font:500 13.5px/1 var(--ar);opacity:.85;transition:opacity .3s}
 .lang:hover{opacity:1}
 html[lang=ar] .lang{font:500 11px/1 var(--font)}
+.hdr-call{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 12px;border:1px solid currentColor;border-radius:var(--r);font:500 10.5px/1 var(--font);letter-spacing:.2em;text-transform:uppercase}
+.hdr-call svg{width:15px;height:15px;flex:none}
+html[lang=ar] .hdr-call{font:500 13px/1 var(--ar)}
+@media (max-width:379px){.hdr-call{padding:0 11px}.hdr-call span{display:none}}   /* small phones (iPhone SE, mini): phone icon only */
 .hdr .btn{min-height:38px;padding:0 18px;font-size:10.5px}
 html[lang=ar] .hdr .btn{font-size:13px}
 @media (max-width:359px){.hdr .btn{display:none}}
@@ -306,7 +310,7 @@ html[lang=ar] .scene-cap h3{font:300 clamp(1.6rem,3vw + .5rem,3.8rem)/1.35 var(-
 .gal-track{--ch:clamp(300px,calc(100svh - var(--hdr) - var(--barh) - 210px),660px);display:flex;gap:clamp(10px,1.4vw,20px);padding-inline:var(--gut);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .gal-track::-webkit-scrollbar{display:none}
 .motion .gal:not(.is-swipe) .gal-track{overflow:visible;scroll-snap-type:none}
-.gal.is-swipe .gal-track{scroll-snap-type:none;touch-action:pan-x pan-y}   /* phones and tablets: swipe sideways; the cards also drift on their own */
+.gal.is-swipe .gal-track{scroll-snap-type:none;touch-action:pan-x}   /* phones and tablets: swipe sideways only (the page scrolls from above or below the cards); the cards also drift on their own */
 .gal-card{position:relative;flex:none;height:var(--ch);aspect-ratio:1080/1936;margin:0;overflow:hidden;background:var(--sand-2);scroll-snap-align:start}
 .gal-card img{position:absolute;top:0;left:-8%;width:116%;max-width:none;height:100%;object-fit:cover;transition:scale 1.2s var(--out)}
 .gal-card:hover img{scale:1.04}
@@ -536,24 +540,16 @@ html[lang=ar] .dock-tab.is-on{transform:translate(0,-50%)}
 
 /* ---------- floating: mobile mini form (name + mobile), follows the visitor ---------- */
 :root{--barh:0px}
-@media (max-width:1279px){:root{--barh:calc(114px + env(safe-area-inset-bottom))}}
-@media (min-width:640px) and (max-width:1279px){:root{--barh:calc(66px + env(safe-area-inset-bottom))}}
+@media (max-width:1279px){:root{--barh:calc(68px + env(safe-area-inset-bottom))}}
 .mbar{position:fixed;z-index:55;left:0;right:0;bottom:0;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(252,251,248,.95);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border-top:1px solid var(--line);box-shadow:0 -20px 40px -28px rgba(58,56,53,.4);transform:translateY(110%);transition:transform .7s var(--out)}
 .mbar::before{content:"";position:absolute;inset:-1px 0 auto;height:2px;background:var(--btn)}
 .mbar.is-on{transform:none}
-.mform{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.4fr);gap:6px;max-width:1000px;margin:0 auto}
-.mform .f{margin:0}
-.mform .field{height:44px;padding:0 10px;font-size:16px;background-color:var(--white)}
-.mform .tel{gap:4px}
-.mform .tel select.field,html[dir=rtl] .mform .tel select.field{flex:0 0 82px;padding:0 18px 0 7px;background-position:right 7px center}
-.mform .go{grid-column:1/-1;margin:0;min-height:44px}
-.mform .msg{display:none!important}
-.mform .f-status{position:absolute;left:var(--gut);right:var(--gut);bottom:100%;margin:0 0 8px;padding:10px 12px;background:var(--white);border:1px solid #C0563D;font-size:12.5px}
-.mbar .thanks{display:none}
-.mbar.is-done .thanks{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:0;font:400 14px/1.4 var(--font);animation:up .6s var(--out)}
-html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
-.mbar .thanks svg{width:28px;height:28px;margin:0;flex:none}
-@media (min-width:640px){.mform{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto}.mform .go{grid-column:auto;padding:0 24px}}
+.mbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:8px}
+.mb-call{display:flex;align-items:center;justify-content:center;gap:9px;height:48px;border:1px solid var(--ink);border-radius:var(--r);color:var(--ink);font:500 11px/1 var(--font);letter-spacing:.2em;text-transform:uppercase}
+.mb-call svg{width:17px;height:17px;flex:none}
+.mbar .btn{min-height:48px;margin:0}
+html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
+@media (min-width:640px){.mbar{padding-left:max(var(--gut),calc(50vw - 360px));padding-right:max(var(--gut),calc(50vw - 360px))}}   /* tablets: buttons stay a comfortable width */
 @media (min-width:1280px){.mbar{display:none}}
 .no-wa [data-wa]{display:none!important}
 /* keep bottom-anchored content clear of the mini form */
@@ -606,6 +602,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     <a href="#top" class="logo" aria-label="District 11 by Al Marwan"><svg aria-hidden="true"><use href="#d11"/></svg></a>
     <div class="hdr-end">
       <button class="lang" id="langBtn" type="button" aria-label="التبديل إلى العربية"><span data-lang-label>عربي</span></button>
+      <a class="hdr-call" data-tel href="tel:80061"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span data-i18n="hdr.call">Call</span></a>
       <a href="#register" class="btn btn-terra" data-lead="price"><span class="lbl" data-i18n="hdr.cta">Enquire</span></a>
     </div>
   </div>
@@ -961,15 +958,10 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 <button class="dock-tab" id="dockTab" type="button"><span data-i18n="dk.tab">Enquire now</span></button>
 
 <!-- ================= MINI FORM (phones & tablets, follows the visitor) ================= -->
-<div class="mbar" id="mbar" data-lead-box>
-  <form class="lead-form mform" data-form="bar" method="post" novalidate aria-label="Get the price list">
-          <input class="hp" type="text" name="d11_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="f"><input class="field ym-disable-keys" id="bar-name" name="name" type="text" maxlength="80" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name" aria-label="Full name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
-    <div class="f"><div class="tel"><select class="field" id="bar-cc" name="cc" aria-label="Country code"></select><input class="field ym-disable-keys" id="bar-phone" name="phone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel-national" required data-i18n-ph="ph.mobile" placeholder="Mobile number" aria-label="Mobile number"></div><em class="msg" data-i18n="e.phone">Please enter a valid mobile number</em></div>
-    <button class="btn btn-terra go" type="submit"><span class="lbl" data-i18n="f.submit">Get the price list</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
-    <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again.</p>
-  </form>
-  <div class="thanks" aria-live="polite"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg><span data-i18n="th.text">A District 11 consultant will call you shortly.</span></div>
+<div class="mbar" id="mbar">
+  <a class="mb-call" data-tel href="tel:80061"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span data-i18n="hdr.call">Call</span></a>
+  <button class="btn btn-terra" type="button" data-lead="price"><span class="lbl" data-i18n="hdr.cta">Enquire</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
+</div>
 </div>
 
 <!-- ================= DIALOGS ================= -->
@@ -1064,7 +1056,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 
   var AR = {
     _title: 'ديستركت 11 من المروان | أول حي للمكاتب فائقة التطور في الشارقة',
-    'hdr.cta': 'استفسر',
+    'hdr.cta': 'استفسر', 'hdr.call': 'اتصل',
     'hero.sold': 'تم بيع <span class="ltr">75%</span>',
     'hero.title': 'أول <strong>حي للمكاتب فائقة التطور</strong> في الشارقة',
     'hero.sub': '3.5 مليون قدم مربع من المكاتب والمرافق في وجهة واحدة متكاملة التخطيط.',
@@ -1235,7 +1227,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     state.submitted = true;
     store.set('d11-lead', '1', true);
     $$('[data-lead-box]').forEach(function (b) { b.classList.add('is-done'); });
-    if (source === 'dock' || source === 'bar') setTimeout(function () { state.dockHidden = true; updateFloating(); }, 5000);
+    if (source === 'dock') setTimeout(function () { state.dockHidden = true; updateFloating(); }, 5000);
     else state.dockHidden = true;
     updateFloating();
   }
@@ -1522,10 +1514,8 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     dock.classList.toggle('is-min', dockMin);
     dockTab.classList.toggle('is-on', showDock && dockMin);
     if (showDock && !dockMin && !state.dockSeen) { state.dockSeen = true; track('dock_shown'); }
-    var typing = mbar.contains(document.activeElement);
-    mbar.classList.toggle('is-on', !isDock() && !anyOpen && !state.dockHidden && (typing || (past && !state.heroVis && !state.finalVis)));
+    mbar.classList.toggle('is-on', !isDock() && !anyOpen && past && !state.heroVis && !state.finalVis);
   }
-  mbar.addEventListener('focusout', function () { setTimeout(updateFloating, 50); });
   $('#dockMin').addEventListener('click', function () { dockMin = true; store.set('d11-dock-min', '1', true); updateFloating(); });
   dockTab.addEventListener('click', function () { dockMin = false; store.set('d11-dock-min', '0', true); updateFloating(); setTimeout(function () { var n = $('#dock-name'); if (n) n.focus({ preventScroll: true }); }, 500); });
   var fio = new IntersectionObserver(function (es) {
@@ -1721,7 +1711,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     mm.add('(pointer: coarse), (max-width: 767px)', function () {
       gal.classList.add('is-swipe');
       /* a second set of the same cards makes an endless loop */
-      var clones = cards.map(function (c) { var k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true'); track.appendChild(k); return k; });
+      var clones = cards.map(function (c) { var k = c.cloneNode(true); k.removeAttribute('style'); k.setAttribute('aria-hidden', 'true'); track.appendChild(k); return k; });
       var sign = rtl ? -1 : 1, speed = 26, pos = 0, last = 0, raf = 0, hold = 0, touching = false, visible = false, num = -1;
       var loopW = function () { return Math.abs(clones[0].offsetLeft - cards[0].offsetLeft); };
       var step = function () { return Math.abs(cards[1].offsetLeft - cards[0].offsetLeft) || 1; };
