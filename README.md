@@ -8,6 +8,8 @@ Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the f
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
 - `assets/images/` — every image the page uses (WebP only; nothing unused is kept).
 - `assets/video/` — every video the page uses (H.264 MP4, no sound).
+- `.htaccess` — server settings for Apache / WordPress hosting (ignored by GitHub Pages): lets Yandex Metrika show the page
+  in its click map, scroll map, form analysis and Session Replay, and blocks framing by any other site.
 - `assets/fonts/` — Radikal (Thin, Light, Bold) as WOFF2, converted from the brand files. Arabic uses Noto Kufi Arabic from Google Fonts (also inside Radikal text, so every Arabic word is in the brand Arabic font).
 
 Open `index.html` directly, or host it together with the `assets/` folder.
@@ -26,7 +28,7 @@ To swap a picture, replace the file with one of the same name and shape.
 | Story 05 · Lobbies | `images/story-5-lobby.webp` | `images/story-5-lobby-m.webp` |
 | Sustainability | `images/green-pavilion-night.webp`, `video/green.mp4` + `images/green-video-poster.webp` | same |
 | Concierge scene | `images/reception.webp` | `images/reception-m.webp` |
-| Hotel-standards gallery (8 cards) | `images/interior-*.webp` + night shot `images/night-arcades.webp` (tall, used on every screen) | same |
+| Hotel-standards gallery (8 cards; computers: slides sideways as you scroll; phones and tablets: swipe sideways, and the cards drift on their own, pausing 3.5 s after a swipe) | `images/interior-*.webp` + night shot `images/night-arcades.webp` (tall, used on every screen) | same |
 | Aerial scene | `images/aerial.webp` | `images/aerial-m.webp` |
 | Location map | `images/location-map.webp`, `images/location-map-sm.webp` | same |
 | Final contact | `images/final-masterplan.webp` | `images/final-masterplan-m.webp` |
@@ -80,9 +82,11 @@ When updating to a newer `Code.gs`, keep your own `NOTIFY_EMAILS` line, then **M
   verification for that Google account.
 - The name, phone and email fields are excluded from Yandex Metrika Session Replay (`ym-disable-keys`), so what people
   type is not recorded by Yandex.
-- The page loads scripts only from its own file and Yandex Metrika, and fonts from Google Fonts. A small security policy
-  in `<head>` blocks plugins, stops an injected `<base>` tag from rerouting the page's links, and only lets forms post to
-  the page itself or the lead sheet. If you add Google Ads or Meta Pixel later, no change is needed.
+- The page loads scripts only from its own file and Yandex Metrika, and fonts from Google Fonts.
+- `.htaccess` lets only this site and Yandex show the page inside a frame. Do not add an `X-Frame-Options` header
+  (some security plugins and hosts do): it stops Metrika's click map and Session Replay from working.
+  To check, open the page with `?_ym_debug=1` and look in the browser console, or see the response headers in the
+  browser's developer tools: there should be no `X-Frame-Options`.
 
 ## Floor plans
 Levels 03, 08 and 09 are the supplied D6 plans. Levels 01, 02 and 04–07 were generated from the typical

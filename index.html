@@ -15,8 +15,6 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/113254549" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self' https://script.google.com">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>District 11 by Al Marwan | Sharjah's First Ultra Office District</title>
 <meta name="description" content="District 11 by Al Marwan: Sharjah's first ultra office district. 3.5 million sq ft of offices and amenities on E311. 75% sold. 5% down payment, 40/60 payment plan, handover Q4 2029.">
@@ -148,9 +146,6 @@ html[dir=rtl] .btn:hover .arr{transform:scaleX(-1) translateX(5px)}
 .logo svg{height:28px;width:auto;aspect-ratio:1817/532}
 @media (min-width:768px){.logo svg{height:34px}}
 .hdr-end{display:flex;align-items:center;gap:8px}
-.hdr-call{display:none;align-items:center;gap:10px;padding:0 8px;font:500 13px/1 var(--font);letter-spacing:.06em}
-.hdr-call svg{width:16px;height:16px}
-@media (min-width:900px){.hdr-call{display:inline-flex}}
 .lang{height:38px;min-width:44px;padding:0 12px;border:1px solid currentColor;border-radius:var(--r);font:500 13.5px/1 var(--ar);opacity:.85;transition:opacity .3s}
 .lang:hover{opacity:1}
 html[lang=ar] .lang{font:500 11px/1 var(--font)}
@@ -310,7 +305,8 @@ html[lang=ar] .scene-cap h3{font:300 clamp(1.6rem,3vw + .5rem,3.8rem)/1.35 var(-
 @media (max-width:767px){.motion .gal-prog{display:none}}
 .gal-track{--ch:clamp(300px,calc(100svh - var(--hdr) - var(--barh) - 210px),660px);display:flex;gap:clamp(10px,1.4vw,20px);padding-inline:var(--gut);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .gal-track::-webkit-scrollbar{display:none}
-.motion .gal-track{overflow:visible;scroll-snap-type:none}
+.motion .gal:not(.is-swipe) .gal-track{overflow:visible;scroll-snap-type:none}
+.gal.is-swipe .gal-track{scroll-snap-type:none;touch-action:pan-x pan-y}   /* phones and tablets: swipe sideways; the cards also drift on their own */
 .gal-card{position:relative;flex:none;height:var(--ch);aspect-ratio:1080/1936;margin:0;overflow:hidden;background:var(--sand-2);scroll-snap-align:start}
 .gal-card img{position:absolute;top:0;left:-8%;width:116%;max-width:none;height:100%;object-fit:cover;transition:scale 1.2s var(--out)}
 .gal-card:hover img{scale:1.04}
@@ -609,7 +605,6 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
   <div class="wrap">
     <a href="#top" class="logo" aria-label="District 11 by Al Marwan"><svg aria-hidden="true"><use href="#d11"/></svg></a>
     <div class="hdr-end">
-      <a class="hdr-call ltr" data-tel href="tel:80061"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span data-tel-label>800 61</span></a>
       <button class="lang" id="langBtn" type="button" aria-label="التبديل إلى العربية"><span data-lang-label>عربي</span></button>
       <a href="#register" class="btn btn-terra" data-lead="price"><span class="lbl" data-i18n="hdr.cta">Enquire</span></a>
     </div>
@@ -665,7 +660,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
               <option value="Broker" data-i18n="o.brk">A broker</option>
             </select></label>
           <button class="btn btn-terra btn-block go" type="submit"><span class="lbl" data-i18n="f.submit">Get the price list</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
-          <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again, or call 800 61.</p>
+          <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again.</p>
           <p class="consent" data-i18n="f.consent">By submitting, you agree to be contacted by Al Marwan Developments about District 11.</p>
         </form>
         <div class="thanks" aria-live="polite">
@@ -888,9 +883,8 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
       <span class="eyebrow rv" data-i18n="fn.eyebrow">Only 25% remaining</span>
       <h2 class="h2" data-split style="margin-top:18px" data-i18n="fn.title">Secure your address at <strong>District&nbsp;11.</strong></h2>
       <div class="contacts rv">
-        <a data-tel href="tel:80061"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span class="ltr" data-tel-label>800 61</span></a>
         <a data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9a4.5 4.5 0 0 1-2.4-2.4l.9-1-1-2z"/></svg><span data-i18n="c.wa">WhatsApp</span></a>
-        <a data-mail href="mailto:info@almarwandevelopments.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg><span class="ltr" data-mail-label>info@almarwandevelopments.com</span></a>
+        <a data-mail href="mailto:marketing@almarwandevelopments.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg><span class="ltr" data-mail-label>marketing@almarwandevelopments.com</span></a>
       </div>
     </div>
     <div class="rv">
@@ -913,7 +907,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
               <option value="Broker" data-i18n="o.brk">A broker</option>
             </select></label>
           <button class="btn btn-terra btn-block go" type="submit"><span class="lbl" data-i18n="f.submit">Get the price list</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
-          <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again, or call 800 61.</p>
+          <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again.</p>
           <p class="consent" data-i18n="f.consent">By submitting, you agree to be contacted by Al Marwan Developments about District 11.</p>
         </form>
         <div class="thanks" aria-live="polite">
@@ -934,7 +928,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     <div class="ftr-row">
       <a href="#top" class="logo" aria-label="District 11 by Al Marwan"><svg aria-hidden="true"><use href="#d11"/></svg></a>
       <p data-i18n="ft.addr">Sales office: Tilal City, Emirates Road (E611), Sharjah · Mon to Fri, 9:30 am to 7:00 pm</p>
-      <p class="ltr"><a data-tel href="tel:80061" data-tel-label>800 61</a> · <a data-mail href="mailto:info@almarwandevelopments.com" data-mail-label>info@almarwandevelopments.com</a></p>
+      <p class="ltr"><a data-tel href="tel:80061" data-tel-label>800 61</a> · <a data-mail href="mailto:marketing@almarwandevelopments.com" data-mail-label>marketing@almarwandevelopments.com</a></p>
     </div>
     <p class="disc"><span data-i18n="ft.disc">Images are artist's impressions. Floor plans, availability and payment terms are indicative and subject to change; the sales and purchase agreement prevails.</span> © <span class="ltr">2026</span> <span data-i18n="ft.rights">Al Marwan Developments.</span></p>
   </div>
@@ -955,7 +949,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
         <div class="tel"><select class="field" id="dock-cc" name="cc" aria-label="Country code"></select><input class="field ym-disable-keys" id="dock-phone" name="phone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel-national" required placeholder="50 123 4567" aria-label="Mobile number"></div>
         <em class="msg" data-i18n="e.phone">Please enter a valid mobile number</em></div>
       <button class="btn btn-terra btn-block go" style="--i:4" type="submit"><span class="lbl" data-i18n="dk.submit">Call me back</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
-      <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again, or call 800 61.</p>
+      <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again.</p>
     </form>
     <div class="thanks" aria-live="polite">
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg>
@@ -973,7 +967,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     <label class="f"><input class="field ym-disable-keys" id="bar-name" name="name" type="text" maxlength="80" autocomplete="name" required data-i18n-ph="ph.name" placeholder="Your name" aria-label="Full name"><em class="msg" data-i18n="e.name">Please enter your name</em></label>
     <div class="f"><div class="tel"><select class="field" id="bar-cc" name="cc" aria-label="Country code"></select><input class="field ym-disable-keys" id="bar-phone" name="phone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel-national" required data-i18n-ph="ph.mobile" placeholder="Mobile number" aria-label="Mobile number"></div><em class="msg" data-i18n="e.phone">Please enter a valid mobile number</em></div>
     <button class="btn btn-terra go" type="submit"><span class="lbl" data-i18n="f.submit">Get the price list</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
-    <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again, or call 800 61.</p>
+    <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again.</p>
   </form>
   <div class="thanks" aria-live="polite"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg><span data-i18n="th.text">A District 11 consultant will call you shortly.</span></div>
 </div>
@@ -1001,7 +995,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
             <option value="Broker" data-i18n="o.brk">A broker</option>
           </select></label>
         <button class="btn btn-terra btn-block go" type="submit"><span class="lbl" id="mBtn">Send me the price list</span><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
-        <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again, or call 800 61.</p>
+        <p class="f-status" role="alert" data-i18n="f.error">We couldn't send your details. Please try again.</p>
         <p class="consent" data-i18n="f.consent">By submitting, you agree to be contacted by Al Marwan Developments about District 11.</p>
       </form>
       <div class="thanks" aria-live="polite">
@@ -1060,7 +1054,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     phone: '80061',
     phoneDisplay: '800 61',
     whatsapp: '',                 // digits only, e.g. '9715XXXXXXXX'. Empty hides WhatsApp buttons.
-    email: 'info@almarwandevelopments.com',
+    email: 'marketing@almarwandevelopments.com',
     metrikaId: 113254549,         // Yandex Metrika counter (snippet in <head>); goals: lead, contact_call, contact_whatsapp, contact_email
     waMessage: {
       en: "Hello, I'm interested in District 11 by Al Marwan. Please share the price list and floor plans.",
@@ -1080,7 +1074,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     'f.name': 'الاسم الكامل', 'f.phone': 'رقم الجوال', 'f.email': 'البريد الإلكتروني (اختياري)', 'f.iam': 'أنا',
     'o.end': 'مستخدم نهائي', 'o.inv': 'مستثمر', 'o.brk': 'وسيط عقاري',
     'f.submit': 'احصل على قائمة الأسعار', 'f.consent': 'بإرسال النموذج، توافق على تواصل المروان للتطوير العقاري معك بخصوص ديستركت 11.',
-    'f.error': 'تعذّر إرسال بياناتك. يرجى المحاولة مرة أخرى أو الاتصال على <span class="ltr">800 61</span>.',
+    'f.error': 'تعذّر إرسال بياناتك. يرجى المحاولة مرة أخرى.',
     'e.name': 'يرجى إدخال اسمك', 'e.phone': 'يرجى إدخال رقم جوال صحيح', 'e.email': 'يرجى إدخال عنوان بريد إلكتروني صحيح', 'ph.name': 'اسمك', 'ph.mobile': 'رقم الجوال',
     'th.title': 'شكراً لك', 'th.text': 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', 'th.wa': 'تواصل معنا عبر واتساب', 'th.call': 'اتصل الآن',
     'in.eyebrow': 'ديستركت 11 · مويلح، الشارقة',
@@ -1704,23 +1698,68 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     return function () { gsap.set('#plan', { clearProps: 'all' }); };
   });
 
-  /* lifestyle gallery: scrolling down slides the tall images sideways */
+  /* lifestyle gallery. Computers: scrolling down slides the tall images sideways.
+     Phones and tablets: a sideways swipe, and the cards drift on their own so it is clear there are more. */
   (function () {
     var track = $('#galTrack'); if (!track) return;
-    var cards = $$('.gal-card', track), imgs = $$('img', track), dir = rtl ? 1 : -1;
-    var dist = function () {
-      var cs = getComputedStyle(track), gap = parseFloat(cs.columnGap) || 0;
-      var w = cards.reduce(function (a, c) { return a + c.offsetWidth; }, 0) + gap * (cards.length - 1) + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
-      return Math.max(0, w - track.clientWidth);
-    };
-    var tl = gsap.timeline({ scrollTrigger: { trigger: '#galPin', start: 'top top', end: function () { return '+=' + Math.max(dist(), innerHeight * .6); }, pin: true, scrub: .8, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 1,
-      onUpdate: function (st) {
-        $('#galNum').textContent = ('0' + Math.min(cards.length, 1 + Math.floor(st.progress * cards.length * .999))).slice(-2);
-        $('#galBar').style.transform = 'scaleX(' + (1 / cards.length + st.progress * (1 - 1 / cards.length)) + ')';
-      } } });
-    tl.to(track, { x: function () { return dir * dist(); }, ease: 'none' })
-      .fromTo(imgs, { xPercent: -dir * 6 }, { xPercent: dir * 6, ease: 'none' }, 0);
+    var gal = $('#lifestyle'), cards = $$('.gal-card', track), imgs = $$('img', track), dir = rtl ? 1 : -1;
+    var setNum = function (i) { $('#galNum').textContent = ('0' + (i + 1)).slice(-2); $('#galBar').style.transform = 'scaleX(' + (i + 1) / cards.length + ')'; };
     gsap.from(cards, { y: 70, opacity: 0, duration: 1.2, stagger: .07, ease: 'expo.out', scrollTrigger: { trigger: '#lifestyle', start: 'top 72%' } });
+
+    mm.add('(pointer: fine) and (min-width: 768px)', function () {
+      var dist = function () {
+        var cs = getComputedStyle(track), gap = parseFloat(cs.columnGap) || 0;
+        var w = cards.reduce(function (a, c) { return a + c.offsetWidth; }, 0) + gap * (cards.length - 1) + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+        return Math.max(0, w - track.clientWidth);
+      };
+      var tl = gsap.timeline({ scrollTrigger: { trigger: '#galPin', start: 'top top', end: function () { return '+=' + Math.max(dist(), innerHeight * .6); }, pin: true, scrub: .8, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 1,
+        onUpdate: function (st) { setNum(Math.min(cards.length - 1, Math.floor(st.progress * cards.length * .999))); } } });
+      tl.to(track, { x: function () { return dir * dist(); }, ease: 'none' })
+        .fromTo(imgs, { xPercent: -dir * 6 }, { xPercent: dir * 6, ease: 'none' }, 0);
+    });
+
+    mm.add('(pointer: coarse), (max-width: 767px)', function () {
+      gal.classList.add('is-swipe');
+      /* a second set of the same cards makes an endless loop */
+      var clones = cards.map(function (c) { var k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true'); track.appendChild(k); return k; });
+      var sign = rtl ? -1 : 1, speed = 26, pos = 0, last = 0, raf = 0, hold = 0, touching = false, visible = false, num = -1;
+      var loopW = function () { return Math.abs(clones[0].offsetLeft - cards[0].offsetLeft); };
+      var step = function () { return Math.abs(cards[1].offsetLeft - cards[0].offsetLeft) || 1; };
+      var sync = function () {   /* take over from wherever the visitor left it, back inside the first set */
+        var w = loopW(); pos = Math.abs(track.scrollLeft);
+        if (w && pos >= w) { pos -= w; track.scrollLeft = sign * pos; }
+      };
+      var tick = function (t) {
+        raf = requestAnimationFrame(tick);
+        var dt = Math.min(64, t - (last || t)); last = t;
+        if (!visible || touching || document.hidden) return;
+        if (t < hold) { pos = Math.abs(track.scrollLeft); }
+        else {
+          if (hold) { hold = 0; sync(); }
+          var w = loopW();
+          pos += speed * dt / 1000;
+          if (w && pos >= w) pos -= w;
+          track.scrollLeft = sign * pos;
+        }
+        var i = Math.round(pos / step()) % cards.length;
+        if (i !== num) { num = i; setNum(i); }
+      };
+      var down = function () { touching = true; };
+      var up = function () { touching = false; hold = performance.now() + 3500; };
+      track.addEventListener('pointerdown', down); track.addEventListener('touchstart', down, { passive: true });
+      window.addEventListener('pointerup', up); window.addEventListener('touchend', up); window.addEventListener('touchcancel', up);
+      var wheel = function () { hold = performance.now() + 3500; };
+      track.addEventListener('wheel', wheel, { passive: true });
+      var io = new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: .25 });
+      io.observe(track);
+      raf = requestAnimationFrame(tick);
+      return function () {
+        cancelAnimationFrame(raf); io.disconnect();
+        window.removeEventListener('pointerup', up); window.removeEventListener('touchend', up); window.removeEventListener('touchcancel', up);
+        track.removeEventListener('pointerdown', down); track.removeEventListener('touchstart', down); track.removeEventListener('wheel', wheel);
+        clones.forEach(function (k) { k.remove(); }); track.scrollLeft = 0; gal.classList.remove('is-swipe');
+      };
+    });
   })();
 
   /* payment meters */

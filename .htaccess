@@ -1,0 +1,36 @@
+# District 11 landing page: a static page served on its own. WordPress is not involved in this folder.
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine Off
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+  AddType video/mp4 .mp4
+</IfModule>
+
+# Smaller downloads for the page itself
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+</IfModule>
+
+# Images, video and fonts are cached by the browser; the page is always checked for updates
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Yandex Metrika shows the page inside its own frame for click maps, scroll maps, form analysis and Session Replay.
+  # Remove any "no frames" header (some hosts and WordPress plugins add one) and allow only this site and Yandex to frame the page.
+  Header always unset X-Frame-Options
+  Header unset X-Frame-Options
+  Header always set Content-Security-Policy "frame-ancestors 'self' https://*.yandex.ru https://*.yandex.com https://*.yandex.com.tr https://*.yandex.by https://*.yandex.kz https://*.yandex.uz https://*.yandex.az https://webvisor.com https://*.webvisor.com http://webvisor.com http://*.webvisor.com"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
