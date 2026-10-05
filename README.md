@@ -40,10 +40,9 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 | Key | What it does |
 | --- | --- |
 | `formEndpoint` | The Google Sheet web app URL that receives leads (see *Leads in Google Sheets* below). **Connected** to the District 11 leads sheet. If emptied, the page falls back to demo mode and leads are **not saved**. |
-| `phone` / `phoneDisplay` | Click-to-call number and how it is shown. |
 | `whatsapp` | WhatsApp number, digits only (e.g. `9715XXXXXXXX`). WhatsApp buttons stay hidden until this is set. |
 | `email` | Contact email. |
-| `metrikaId` | Yandex Metrika counter (`113254549`). The counter snippet sits at the top of `<head>`; the page also sends the goals `lead` (form submitted) and `contact_call` / `contact_whatsapp` / `contact_email`. Create matching JavaScript-event goals in Metrika to see them as conversions. |
+| `metrikaId` | Yandex Metrika counter (`113254549`). The counter snippet sits at the top of `<head>`; the page also sends the goals `lead` (form submitted) and `contact_whatsapp` / `contact_email`. Create matching JavaScript-event goals in Metrika to see them as conversions. |
 
 Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
 context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
