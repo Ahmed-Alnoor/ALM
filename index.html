@@ -555,7 +555,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
 .mbar .thanks svg{width:28px;height:28px;margin:0;flex:none}
 @media (min-width:640px){.mform{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto}.mform .go{grid-column:auto;padding:0 24px}}
 @media (min-width:1280px){.mbar{display:none}}
-.no-wa [data-wa],.no-wa .thanks-cta{display:none!important}
+.no-wa [data-wa]{display:none!important}
 /* keep bottom-anchored content clear of the mini form */
 @media (max-width:1279px){
   .loc-inner{bottom:calc(var(--barh) + 14px)}
@@ -667,7 +667,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg>
           <h3 data-i18n="th.title">Thank you</h3>
           <p data-i18n="th.text">A District 11 consultant will call you shortly.</p>
-          <div class="thanks-cta"><a class="btn btn-terra" data-wa href="#" target="_blank" rel="noopener"><span class="lbl" data-i18n="th.wa">WhatsApp us</span></a></div>
+          <div class="thanks-cta"><a class="btn btn-terra" data-wa href="#" target="_blank" rel="noopener"><span class="lbl" data-i18n="th.wa">WhatsApp us</span></a><a class="btn btn-line" data-tel href="tel:80061"><span class="lbl" data-i18n="th.call">Call now</span></a></div>
         </div>
       </div>
     </div>
@@ -914,7 +914,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg>
           <h3 data-i18n="th.title">Thank you</h3>
           <p data-i18n="th.text">A District 11 consultant will call you shortly.</p>
-          <div class="thanks-cta"><a class="btn btn-terra" data-wa href="#" target="_blank" rel="noopener"><span class="lbl" data-i18n="th.wa">WhatsApp us</span></a></div>
+          <div class="thanks-cta"><a class="btn btn-terra" data-wa href="#" target="_blank" rel="noopener"><span class="lbl" data-i18n="th.wa">WhatsApp us</span></a><a class="btn btn-line" data-tel href="tel:80061"><span class="lbl" data-i18n="th.call">Call now</span></a></div>
         </div>
       </div>
     </div>
@@ -928,7 +928,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     <div class="ftr-row">
       <a href="#top" class="logo" aria-label="District 11 by Al Marwan"><svg aria-hidden="true"><use href="#d11"/></svg></a>
       <p data-i18n="ft.addr">Sales office: Tilal City, Emirates Road (E611), Sharjah · Mon to Fri, 9:30 am to 7:00 pm</p>
-      <p class="ltr"><a data-mail href="mailto:marketing@almarwandevelopments.com" data-mail-label>marketing@almarwandevelopments.com</a></p>
+      <p class="ltr"><a data-tel href="tel:80061" data-tel-label>800 61</a> · <a data-mail href="mailto:marketing@almarwandevelopments.com" data-mail-label>marketing@almarwandevelopments.com</a></p>
     </div>
     <p class="disc"><span data-i18n="ft.disc">Images are artist's impressions. Floor plans, availability and payment terms are indicative and subject to change; the sales and purchase agreement prevails.</span> © <span class="ltr">2026</span> <span data-i18n="ft.rights">Al Marwan Developments.</span></p>
   </div>
@@ -1002,7 +1002,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg>
         <h3 data-i18n="th.title">Thank you</h3>
         <p data-i18n="th.text">A District 11 consultant will call you shortly.</p>
-        <div class="thanks-cta"><a class="btn btn-terra" data-wa href="#" target="_blank" rel="noopener"><span class="lbl" data-i18n="th.wa">WhatsApp us</span></a></div>
+        <div class="thanks-cta"><a class="btn btn-terra" data-wa href="#" target="_blank" rel="noopener"><span class="lbl" data-i18n="th.wa">WhatsApp us</span></a><a class="btn btn-line" data-tel href="tel:80061"><span class="lbl" data-i18n="th.call">Call now</span></a></div>
       </div>
     </div>
   </div>
@@ -1051,9 +1051,11 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
      ======================================================= */
   var CONFIG = {
     formEndpoint: 'https://script.google.com/macros/s/AKfycbw6l4OYiYPne1J4D0XzZ--G2ZesgUxvR4THZEBrPY0alJJb6nFcuIuY8xH2zFNon0kIkQ/exec',   // Google Sheet web app (integrations/google-sheet/Code.gs). Empty = demo mode: leads are NOT saved.
+    phone: '80061',
+    phoneDisplay: '800 61',
     whatsapp: '',                 // digits only, e.g. '9715XXXXXXXX'. Empty hides WhatsApp buttons.
     email: 'marketing@almarwandevelopments.com',
-    metrikaId: 113254549,         // Yandex Metrika counter (snippet in <head>); goals: lead, contact_whatsapp, contact_email
+    metrikaId: 113254549,         // Yandex Metrika counter (snippet in <head>); goals: lead, contact_call, contact_whatsapp, contact_email
     waMessage: {
       en: "Hello, I'm interested in District 11 by Al Marwan. Please share the price list and floor plans.",
       ar: 'مرحباً، أنا مهتم بمشروع ديستركت 11 من المروان. يرجى مشاركة قائمة الأسعار والمخططات.'
@@ -1074,7 +1076,7 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     'f.submit': 'احصل على قائمة الأسعار', 'f.consent': 'بإرسال النموذج، توافق على تواصل المروان للتطوير العقاري معك بخصوص ديستركت 11.',
     'f.error': 'تعذّر إرسال بياناتك. يرجى المحاولة مرة أخرى.',
     'e.name': 'يرجى إدخال اسمك', 'e.phone': 'يرجى إدخال رقم جوال صحيح', 'e.email': 'يرجى إدخال عنوان بريد إلكتروني صحيح', 'ph.name': 'اسمك', 'ph.mobile': 'رقم الجوال',
-    'th.title': 'شكراً لك', 'th.text': 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', 'th.wa': 'تواصل معنا عبر واتساب',
+    'th.title': 'شكراً لك', 'th.text': 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', 'th.wa': 'تواصل معنا عبر واتساب', 'th.call': 'اتصل الآن',
     'in.eyebrow': 'ديستركت 11 · مويلح، الشارقة',
     'in.statement': 'إحدى عشرة بناية من تصميم HWKN في نيويورك، تحيط بها ساحات خضراء. وجهة أعمال متكاملة يمكن التنقل فيها سيراً، مباشرة على شارع E311.',
     'in.sold': 'تم بيع <span class="ltr">75%</span>', 'in.left': 'لم يتبقَّ سوى ربع الحي.', 'in.cta': 'احجز وحدتك',
@@ -1175,6 +1177,8 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     s.innerHTML = CC.map(function (c) { return '<option value="' + c[0] + '">' + c[1] + ' ' + c[0] + '</option>'; }).join('');
   });
   (function setContactLinks() {
+    $$('[data-tel]').forEach(function (a) { a.href = 'tel:' + CONFIG.phone; });
+    $$('[data-tel-label]').forEach(function (s) { s.textContent = CONFIG.phoneDisplay; });
     $$('[data-mail]').forEach(function (a) { a.href = 'mailto:' + CONFIG.email; });
     $$('[data-mail-label]').forEach(function (s) { s.textContent = CONFIG.email; });
     if (CONFIG.whatsapp) {
@@ -1204,8 +1208,8 @@ html[lang=ar] .mbar.is-done .thanks{font-family:var(--ar)}
     }
   }
   document.addEventListener('click', function (e) {
-    var a = e.target.closest('[data-wa],[data-mail]');
-    if (a) track('contact_click', { method: a.hasAttribute('data-wa') ? 'whatsapp' : 'email' });
+    var a = e.target.closest('[data-tel],[data-wa],[data-mail]');
+    if (a) track('contact_click', { method: a.hasAttribute('data-tel') ? 'call' : a.hasAttribute('data-wa') ? 'whatsapp' : 'email' });
   });
 
   /* ---------- forms ---------- */
