@@ -1114,7 +1114,6 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
     payment:  { en: ['Get the payment schedule', 'Send me the schedule'], ar: ['احصل على جدول الدفع', 'أرسلوا لي جدول الدفع'] },
     visit:    { en: ['Book a sales gallery visit', 'Request a visit'], ar: ['احجز زيارة إلى معرض المبيعات', 'اطلب زيارة'] },
     suite:    { en: ['Office {n}, level {l}', 'Send me the details'], ar: ['المكتب {n}، الطابق {l}', 'أرسلوا لي التفاصيل'] },
-    message:  { en: ['Drop us a message', 'Send'], ar: ['اترك لنا رسالة', 'أرسل'] },
     exit:     { en: ['Before you leave, drop us a message', 'Send'], ar: ['قبل أن تغادر، اترك لنا رسالة', 'أرسل'] }
   };
 
@@ -1329,8 +1328,8 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
     if (planBox.open) closeDialog(planBox, function () { openLead(ctx, compact); });
     else openLead(ctx, compact);
   });
-  /* one gentle pop-up per visit: when the visitor reaches story 02 (bus station), or on leaving (desktop) if that comes first.
-     Never after a lead, never over another dialog, never while someone is typing in a form. */
+  /* computers only: one gentle pop-up per visit when the cursor leaves the window.
+     Never after a lead, never over another dialog, never while someone is typing in a form. Nothing opens on its own while scrolling. */
   var popTimer = 0, t0 = Date.now();
   function canPop() { var a = document.activeElement; return !state.submitted && !modal.open && !planBox.open && !store.get('d11-pop', true) && !(a && a.closest && a.closest('form')); }
   function autoPop(ctx, delay) {
@@ -1340,10 +1339,6 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
   document.addEventListener('mouseout', function (e) {
     if (!e.relatedTarget && e.clientY <= 8 && isDesk() && Date.now() - t0 > 15000) autoPop('exit');
   });
-  if (!MOTION) {   /* without the pinned story, panel 02 simply scrolls into view */
-    var io02 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io02.disconnect(); autoPop('message', 1200); } }, { threshold: .6 });
-    io02.observe($$('.story-panel')[1]);
-  }
 
   /* ---------- lazy videos: play only when visible ---------- */
   var vio = new IntersectionObserver(function (es) {
@@ -1634,7 +1629,6 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
       onUpdate: function (st) {
         var i = Math.min(panels.length - 1, Math.round(st.progress * (panels.length - 1)));
         $('#storyNum').textContent = '0' + (i + 1);
-        if (i >= 1) autoPop('message', 1200);   /* reached 02 · Bus station */
         $('#storyBar').style.transform = 'scaleX(' + (0.25 + st.progress * 0.75) + ')';
       } } });
     gsap.set(panels.slice(1), { clipPath: 'inset(100% 0% 0% 0%)' });

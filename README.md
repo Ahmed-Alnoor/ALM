@@ -48,9 +48,9 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
 context (e.g. `suite-605`), level viewed, selected suite, language, page URL and any UTM / gclid / fbclid values.
 The header has **Call** (800 61) and **Enquire** buttons. On phones and tablets a bar with the same two buttons stays at the bottom of the screen once the visitor scrolls past the hero; on large screens a compact name + mobile form docks on the right instead (form `dock`).
-One gentle pop-up per visit: it opens when the visitor reaches story 02 (bus station), titled *Drop us a message*, or, on a computer,
-when the cursor leaves the window first, titled *Before you leave, drop us a message*. It never opens after a lead was sent,
-over another window, or while someone is typing in a form (context `message` / `exit` in the sheet).
+Nothing pops up while visitors scroll. On a computer only, one pop-up per visit opens when the cursor leaves the window,
+titled *Before you leave, drop us a message*; it never opens after a lead was sent, over another window, or while someone
+is typing in a form (context `exit` in the sheet).
 A `generate_lead` event is pushed to `dataLayer` (GTM) and fired to gtag, Meta Pixel, Snap, TikTok and Yandex Metrika if installed.
 
 ## Leads in Google Sheets
