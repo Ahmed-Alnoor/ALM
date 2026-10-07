@@ -1047,6 +1047,7 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
     phoneDisplay: '800 61',
     whatsapp: '',                 // digits only, e.g. '9715XXXXXXXX'. Empty hides WhatsApp buttons.
     email: 'marketing@almarwandevelopments.com',
+    thankYouPage: 'thank-you.html',   // after a lead is sent the visitor goes here (same folder). Empty = stay and show the thank-you in place.
     metrikaId: 113254549,         // Yandex Metrika counter (snippet in <head>); goals: lead, contact_call, contact_whatsapp, contact_email
     waMessage: {
       en: "Hello, I'm interested in District 11 by Al Marwan. Please share the price list and floor plans.",
@@ -1263,6 +1264,8 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
       send.then(function () {
         track('generate_lead', { lead_form: payload.form, lead_context: payload.context, buyer_type: payload.buyer_type, language: lang });
         markDone(f.dataset.form);
+        /* a short pause lets the analytics hits leave before the thank-you page opens */
+        if (CONFIG.thankYouPage) setTimeout(function () { location.href = CONFIG.thankYouPage + '?lang=' + lang; }, 600);
       }).catch(function () { status.classList.add('is-show'); })
         .then(function () { btn.classList.remove('is-loading'); btn.disabled = false; });
     });
@@ -1316,6 +1319,8 @@ html[lang=ar] .mb-call{font:500 14px/1 var(--ar)}
     track('lead_modal_open', { lead_context: currentModal });
     if (isDesk() && !state.submitted) setTimeout(function () { var n = $('[name=name]', modal); if (n) n.focus({ preventScroll: true }); }, 350);
   }
+  /* coming back from the thank-you page with the browser's Back: close the form window that sent the lead */
+  window.addEventListener('pageshow', function (e) { if (e.persisted && modal.open) closeDialog(modal); });
   [modal, planBox].forEach(function (d) {
     d.addEventListener('click', function (e) { if (e.target === d || e.target.closest('[data-close]')) closeDialog(d); });
     d.addEventListener('cancel', function (e) { e.preventDefault(); closeDialog(d); });

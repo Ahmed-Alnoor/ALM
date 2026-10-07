@@ -6,6 +6,9 @@ terracotta of the D6 plans), the District 11 and Al Marwan logos, Radikal type.
 Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the file (GSAP Standard License, Lenis MIT).
 
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
+- `thank-you.html` — where visitors land after sending any form (English or Arabic, follows the landing page). *Back to the page*
+  returns them to the exact spot they left; *Call 800 61* dials the sales line. Hidden from Google (`noindex`); carries the same Metrika counter,
+  so a visit to this page can be used as a conversion goal (URL contains `thank-you`).
 - `assets/images/` — every image the page uses (WebP only; nothing unused is kept).
 - `assets/video/` — every video the page uses (H.264 MP4, no sound).
 - `.htaccess` — server settings for Apache / WordPress hosting (ignored by GitHub Pages): lets Yandex Metrika show the page
@@ -43,6 +46,7 @@ Edit the `CONFIG` block near the top of the `<script>` in `index.html`:
 | `phone` / `phoneDisplay` | Click-to-call number and how it is shown. |
 | `whatsapp` | WhatsApp number, digits only (e.g. `9715XXXXXXXX`). WhatsApp buttons stay hidden until this is set. |
 | `email` | Contact email. |
+| `thankYouPage` | Page opened after a lead is sent (`thank-you.html`). Leave empty to stay on the page and show the thank-you message in place. |
 | `metrikaId` | Yandex Metrika counter (`113254549`). The counter snippet sits at the top of `<head>`; the page also sends the goals `lead` (form submitted) and `contact_call` / `contact_whatsapp` / `contact_email`. Create matching JavaScript-event goals in Metrika to see them as conversions. |
 
 Each lead includes name, phone (with country code), email, buyer type (end user / investor / broker), form,
