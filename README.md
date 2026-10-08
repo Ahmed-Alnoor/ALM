@@ -6,7 +6,7 @@ terracotta of the D6 plans), the District 11 and Al Marwan logos, Radikal type.
 Motion runs on GSAP + ScrollTrigger and Lenis smooth scrolling, inlined in the file (GSAP Standard License, Lenis MIT).
 
 - `index.html` — the whole page (HTML + CSS + JS inline, no frameworks).
-- `thank-you.html` — where visitors land after sending any form (English or Arabic, follows the landing page). *Back to the page*
+- `thank-you.html` — where visitors land after sending any form: one page in English (top) and Arabic (below). *Back to the page*
   returns them to the exact spot they left; *Call 800 61* dials the sales line. Hidden from Google (`noindex`); carries the same Metrika counter,
   so a visit to this page can be used as a conversion goal (URL contains `thank-you`).
 - `assets/images/` — every image the page uses (WebP only; nothing unused is kept).

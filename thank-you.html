@@ -16,22 +16,13 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/113254549" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Thank you | District 11 by Al Marwan</title>
+<title>Thank you · شكراً | District 11 by Al Marwan</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F6F4EE">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F6F4EE'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial' font-weight='700' font-size='32' fill='%23111' text-anchor='middle'%3E11%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500&display=swap" rel="stylesheet">
-<script>
-  /* same language as the landing page: ?lang=ar|en, else the visitor's last choice */
-  (function (r) {
-    try {
-      var q = new URLSearchParams(location.search).get('lang');
-      if ((q || localStorage.getItem('d11-lang')) === 'ar') { r.lang = 'ar'; r.dir = 'rtl'; }
-    } catch (e) {}
-  })(document.documentElement);
-</script>
 <style>
 @font-face{font-family:"Radikal";font-weight:200;font-display:swap;src:url("assets/fonts/Radikal-Thin.woff2") format("woff2")}
 @font-face{font-family:"Radikal";font-weight:300 450;font-display:swap;src:url("assets/fonts/Radikal-Light.woff2") format("woff2")}
@@ -42,8 +33,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:300 16px/1.6 var(--font);-webkit-font-smoothing:antialiased}
-html[lang=ar] body{font-family:var(--ar);line-height:1.8}
-html[lang=ar] body *:not(.ltr):not(.ltr *){letter-spacing:0!important}
+[lang=ar]{font-family:var(--ar);line-height:1.8;letter-spacing:0}
 a{color:inherit;text-decoration:none}
 .ltr{direction:ltr;unicode-bidi:isolate}
 .page{position:relative;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;color:#fff;overflow:hidden}
@@ -63,19 +53,20 @@ main{display:grid;place-items:center;padding:24px var(--gut) 40px}
 .tick path{animation:draw .7s .85s forwards var(--out)}
 @keyframes draw{to{stroke-dashoffset:0}}
 .k{display:inline-flex;align-items:center;gap:10px;font:500 10.5px/1.4 var(--font);letter-spacing:.28em;text-transform:uppercase;color:var(--ink-2)}
-html[lang=ar] .k{font:500 13px/1.5 var(--ar)}
+.k[lang=ar]{font:500 13px/1.5 var(--ar);letter-spacing:0}
 h1{margin:12px 0 10px;font:300 clamp(2rem,3vw + 1rem,2.8rem)/1.05 var(--font);letter-spacing:-.01em}
-html[lang=ar] h1{font:400 clamp(1.7rem,2.4vw + .9rem,2.3rem)/1.4 var(--ar)}
+.ar h1{font:400 clamp(1.7rem,2.4vw + .9rem,2.3rem)/1.4 var(--ar)}
+.sep{width:48px;height:1px;margin:22px auto;background:var(--line)}
 p{margin:0 auto;max-width:32ch;color:var(--ink-2)}
 .ctas{display:grid;gap:10px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;border-radius:var(--r);border:1px solid var(--ink);font:500 11px/1 var(--font);letter-spacing:.22em;text-transform:uppercase;transition:background-color .3s,color .3s}
-html[lang=ar] .btn{font:500 14px/1.2 var(--ar)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:62px;padding:10px 24px;border-radius:var(--r);border:1px solid var(--ink);font:500 11px/1 var(--font);letter-spacing:.22em;text-transform:uppercase;transition:background-color .3s,color .3s}
+.btn .l{display:grid;gap:5px;text-align:center}
+.btn .l [lang=ar]{font:500 13.5px/1.2 var(--ar);letter-spacing:0;text-transform:none}
 .btn-dark{background:var(--ink);color:#fff}
 .btn-dark:hover{background:#3A3A3A;border-color:#3A3A3A}
 .btn-line:hover{background:var(--ink);color:#fff}
 .btn svg{width:18px;height:10px;flex:none}
 .btn .ph{width:16px;height:16px}
-html[dir=rtl] .btn .arr{transform:scaleX(-1)}
 .foot{padding:18px var(--gut) calc(18px + env(safe-area-inset-bottom));font-size:12.5px;color:rgba(255,255,255,.8);text-align:center}
 .foot a{border-bottom:1px solid rgba(255,255,255,.35)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important}}
@@ -90,12 +81,20 @@ html[dir=rtl] .btn .arr{transform:scaleX(-1)}
   <main>
     <div class="card" role="status">
       <svg class="tick" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="58" height="58" pathLength="1"/><path d="M20 33l8 8 16-17" pathLength="1"/></svg>
-      <span class="k" data-t="k">District 11 · Al Marwan</span>
-      <h1 data-t="title">Thank you</h1>
-      <p data-t="text">A District 11 consultant will call you shortly.</p>
+      <div lang="en">
+        <span class="k">District 11 · Al Marwan</span>
+        <h1>Thank you</h1>
+        <p>A District 11 consultant will call you shortly.</p>
+      </div>
+      <div class="sep" aria-hidden="true"></div>
+      <div class="ar" lang="ar" dir="rtl">
+        <span class="k" lang="ar">ديستركت 11 · المروان</span>
+        <h1>شكراً لك</h1>
+        <p>سيتصل بك أحد مستشاري ديستركت 11 قريباً.</p>
+      </div>
       <div class="ctas">
-        <a class="btn btn-dark" id="back" href="index.html"><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor" aria-hidden="true"><path d="M18 5H1M5 1L1 5l4 4"/></svg><span data-t="back">Back to the page</span></a>
-        <a class="btn btn-line" id="call" href="tel:80061"><svg class="ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span><span data-t="call">Call</span> <span class="ltr">800 61</span></span></a>
+        <a class="btn btn-dark" id="back" href="index.html"><svg class="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor" aria-hidden="true"><path d="M18 5H1M5 1L1 5l4 4"/></svg><span class="l"><span>Back to the page</span><span lang="ar" dir="rtl">العودة إلى الصفحة</span></span></a>
+        <a class="btn btn-line" id="call" href="tel:80061"><svg class="ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span class="l"><span>Call <span class="ltr">800 61</span></span><span lang="ar" dir="rtl">اتصل <bdi>800 61</bdi></span></span></a>
       </div>
     </div>
   </main>
@@ -103,12 +102,6 @@ html[dir=rtl] .btn .arr{transform:scaleX(-1)}
 </div>
 <script>
 (function () {
-  var ar = document.documentElement.lang === 'ar';
-  if (ar) {
-    var T = { k: 'ديستركت 11 · المروان', title: 'شكراً لك', text: 'سيتصل بك أحد مستشاري ديستركت 11 قريباً.', back: 'العودة إلى الصفحة', call: 'اتصل' };
-    document.title = 'شكراً لك | ديستركت 11 من المروان';
-    [].forEach.call(document.querySelectorAll('[data-t]'), function (n) { if (T[n.dataset.t]) n.textContent = T[n.dataset.t]; });
-  }
   /* back to the exact page and spot the visitor came from; opened directly, it goes to the landing page */
   document.getElementById('back').addEventListener('click', function (e) {
     try {
